@@ -54,6 +54,7 @@
         <hackathon>
             <honeyspam>
                 <honeypotName>2good4you</honeypotName>
+                <honeypotAccountCreateTime>5</honeypotAccountCreateTime>
             </honeyspam>
         </hackathon>
     </default>
