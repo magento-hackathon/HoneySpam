@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<layout>
+    <block type="core/text_list" name="form.additional.info">
+        <block type="hackathon_honeyspam/honeypot" name="honeypot" template="hackathon/honeyspam/honeypot.html" />
+    </block>
+</layout>
