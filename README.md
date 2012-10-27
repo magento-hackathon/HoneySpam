@@ -7,6 +7,8 @@ There is also a check if this form is to fast transmitted, a human normally take
 
 You can enable and disable the functionalitys or set the time how long it should take to transmit this forms in the Magento Admin Backend.
 
+Freshly added: Regex-checking on all input-fields to determine a loose index for spam-level. It is not the
+most accurate thing at all, but it may prevent the low-end spam ("broadband spam"), though its not yet configurable
 
 ## Installation
 
