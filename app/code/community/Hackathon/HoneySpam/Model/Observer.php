@@ -89,7 +89,9 @@ class Hackathon_HoneySpam_Model_Observer
 
         $checker = Mage::getModel('hackathon_honeypot/checker');
 
-        Mage::log("Index of login is: " + $checker->init(Mage::app()->getRequest()->getParams()));
+        if ( $checker->init(Mage::app()->getRequest()->getParams()) > 3) {
+            Mage::throwException('Spam index bad!');
+        }
 
     }
 }
