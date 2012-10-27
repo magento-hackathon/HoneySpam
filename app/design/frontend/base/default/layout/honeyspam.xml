@@ -1,5 +1,11 @@
 <?xml version="1.0"?>
 <layout>
+    <default>
+        <reference name="head">
+            <action method="removeItem"><type>js</type><name>js/hackathon/HoneySpam/honeyspam.js</name></action>
+        </reference>
+    </default>
+    
     <customer_account_login>
         <block type="core/text_list" name="form.additional.info">
             <block type="hackathon_honeyspam/honeypot" name="honeypot" template="hackathon/honeyspam/honeypot.html" />
