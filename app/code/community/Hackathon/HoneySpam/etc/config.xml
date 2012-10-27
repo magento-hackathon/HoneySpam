@@ -53,7 +53,7 @@
     <default>
         <hackathon>
             <honeyspam>
-                <honeypotName>2good4you</honeypotName>
+                <honeypotName>url</honeypotName>
                 <honeypotAccountCreateTime>5</honeypotAccountCreateTime>
             </honeyspam>
         </hackathon>
