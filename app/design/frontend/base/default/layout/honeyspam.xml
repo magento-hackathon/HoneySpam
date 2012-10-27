@@ -1,5 +1,17 @@
 <?xml version="1.0"?>
 <layout>
+    <customer_account_login>
+        <block type="core/text_list" name="form.additional.info">
+            <block type="hackathon_honeyspam/honeypot" name="honeypot" template="hackathon/honeyspam/honeypot.html" />
+        </block>
+    </customer_account_login>
+
+    <customer_logged_in>
+        <block type="core/text_list" name="form.additional.info">
+            <block type="hackathon_honeyspam/honeypot" name="honeypot" template="hackathon/honeyspam/honeypot.html" />
+        </block>
+    </customer_logged_in>
+
     <customer_account_create>
         <reference name="form.additional.info">
             <block type="hackathon_honeyspam/honeypot" name="honeyspam.honeypot" template="hackathon/honeyspam/honeypot.phtml" />
