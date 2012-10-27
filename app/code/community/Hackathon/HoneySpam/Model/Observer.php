@@ -34,7 +34,7 @@ class Hackathon_HoneySpam_Model_Observer
     protected function _checkTimestamp($observer)
     {
         $session = Mage::getSingleton('customer/session');
-        if ($session->getAccountCreateTime() > (time() - 5)) {
+        if (!$session->getAccountCreateTime(false) || ($session->getAccountCreateTime() > (time() - 5))) {
             Mage::throwException('Honeypot catched');
         }
     }
