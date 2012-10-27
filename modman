@@ -1,4 +1,4 @@
 app/code/community/Hackathon/HoneySpam app/code/community/Hackathon/HoneySpam
-app/design/frontend/base/default/hackathon/honeyspam app/design/frontend/base/default/hackathon/honeyspam
+app/design/frontend/base/default/template/hackathon/honeyspam app/design/frontend/base/default/template/hackathon/honeyspam
 app/design/frontend/base/default/layout/honeyspam.xml app/design/frontend/base/default/layout/honeyspam.xml
 app/etc/modules/Hackathon_HoneySpam.xml app/etc/modules/Hackathon_HoneySpam.xml
