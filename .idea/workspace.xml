@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aeb5b99d-a5be-45cf-8b65-80d131fefa35" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/community/Hackathon/HoneySpam/Model/Checker.php" afterPath="$PROJECT_DIR$/app/code/community/Hackathon/HoneySpam/Model/Checker.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/community/Hackathon/HoneySpam/Model/Observer.php" afterPath="$PROJECT_DIR$/app/code/community/Hackathon/HoneySpam/Model/Observer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/code/community/Hackathon/HoneySpam/etc/system.xml" afterPath="$PROJECT_DIR$/app/code/community/Hackathon/HoneySpam/etc/system.xml" />
     </list>
     <ignored path="HoneySpam.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,8 +28,62 @@
       <file leaf-file-name="Observer.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/code/community/Hackathon/HoneySpam/Model/Observer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="52" selection-start="3009" selection-end="3009" vertical-scroll-proportion="0.84228975">
+            <state line="96" column="60" selection-start="3138" selection-end="3138" vertical-scroll-proportion="0.8936916">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="system.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/code/community/Hackathon/HoneySpam/etc/system.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="93" column="43" selection-start="4382" selection-end="4400" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="tag#tabs#0;tag#config#0" expanded="true" />
+                <element signature="tag#hackathon#0;tag#tabs#0;tag#config#0" expanded="true" />
+                <element signature="tag#enableHoneypotName#0;tag#fields#0;tag#honeyspam#0;tag#groups#0;tag#hackathon#0;tag#sections#0;tag#config#0" expanded="true" />
+                <element signature="tag#honeypotName#0;tag#fields#0;tag#honeyspam#0;tag#groups#0;tag#hackathon#0;tag#sections#0;tag#config#0" expanded="true" />
+                <element signature="tag#enableHoneypotAccountCreateTime#0;tag#fields#0;tag#honeyspam#0;tag#groups#0;tag#hackathon#0;tag#sections#0;tag#config#0" expanded="true" />
+                <element signature="tag#honeypotAccountCreateTime#0;tag#fields#0;tag#honeyspam#0;tag#groups#0;tag#hackathon#0;tag#sections#0;tag#config#0" expanded="true" />
+                <element signature="tag#enableSpamIndexing#0;tag#fields#0;tag#honeyspam#0;tag#groups#0;tag#hackathon#0;tag#sections#0;tag#config#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/code/community/Hackathon/HoneySpam/etc/config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="tag#config#0" expanded="true" />
+                <element signature="tag#modules#0;tag#config#0" expanded="true" />
+                <element signature="tag#Hackathon_HoneySpam#0;tag#modules#0;tag#config#0" expanded="true" />
+                <element signature="tag#global#0;tag#config#0" expanded="true" />
+                <element signature="tag#models#0;tag#global#0;tag#config#0" expanded="true" />
+                <element signature="tag#hackathon_honeyspam#0;tag#models#0;tag#global#0;tag#config#0" expanded="true" />
+                <element signature="tag#blocks#0;tag#global#0;tag#config#0" expanded="true" />
+                <element signature="tag#hackathon_honeyspam#0;tag#blocks#0;tag#global#0;tag#config#0" expanded="true" />
+                <element signature="tag#helpers#0;tag#global#0;tag#config#0" expanded="true" />
+                <element signature="tag#hackathon_honeyspam#0;tag#helpers#0;tag#global#0;tag#config#0" expanded="true" />
+                <element signature="tag#frontend#0;tag#config#0" expanded="true" />
+                <element signature="tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+                <element signature="tag#controller_action_predispatch_customer_account_createpost#0;tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+                <element signature="tag#observers#0;tag#controller_action_predispatch_customer_account_createpost#0;tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+                <element signature="tag#hackathon_honeyspam#0;tag#observers#0;tag#controller_action_predispatch_customer_account_createpost#0;tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+                <element signature="tag#controller_action_predispatch_review_product_post#0;tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+                <element signature="tag#observers#0;tag#controller_action_predispatch_review_product_post#0;tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+                <element signature="tag#hackathon_honeyspam#0;tag#observers#0;tag#controller_action_predispatch_review_product_post#0;tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+                <element signature="tag#controller_action_predispatch_customer_account_create#0;tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+                <element signature="tag#observers#0;tag#controller_action_predispatch_customer_account_create#0;tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+                <element signature="tag#hackathon_honeyspam#0;tag#observers#0;tag#controller_action_predispatch_customer_account_create#0;tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+                <element signature="tag#layout#0;tag#frontend#0;tag#config#0" expanded="true" />
+                <element signature="tag#updates#0;tag#layout#0;tag#frontend#0;tag#config#0" expanded="true" />
+                <element signature="tag#hackathon_honeyspam#0;tag#updates#0;tag#layout#0;tag#frontend#0;tag#config#0" expanded="true" />
+                <element signature="tag#default#0;tag#config#0" expanded="true" />
+                <element signature="tag#hackathon#0;tag#default#0;tag#config#0" expanded="true" />
+                <element signature="tag#honeyspam#0;tag#hackathon#0;tag#default#0;tag#config#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -34,7 +91,7 @@
       <file leaf-file-name="Checker.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/code/community/Hackathon/HoneySpam/Model/Checker.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="66" column="45" selection-start="1982" selection-end="1982" vertical-scroll-proportion="-37.5">
               <folding />
             </state>
           </provider>
@@ -58,6 +115,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/app/code/community/Hackathon/HoneySpam/etc/system.xml" />
+        <option value="$PROJECT_DIR$/app/code/community/Hackathon/HoneySpam/Model/Checker.php" />
         <option value="$PROJECT_DIR$/app/code/community/Hackathon/HoneySpam/Model/Observer.php" />
       </list>
     </option>
@@ -191,6 +250,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HoneySpam" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HoneySpam" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="community" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hackathon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HoneySpam" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="etc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -290,16 +383,91 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/code/community/Hackathon/HoneySpam/Model/Checker.php">
+    <entry file="file://$PROJECT_DIR$/modman">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="19" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/code/community/Hackathon/HoneySpam/etc/adminhtml.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="tag#config#0" expanded="true" />
+            <element signature="tag#acl#0;tag#config#0" expanded="true" />
+            <element signature="tag#resources#0;tag#acl#0;tag#config#0" expanded="true" />
+            <element signature="tag#admin#0;tag#resources#0;tag#acl#0;tag#config#0" expanded="true" />
+            <element signature="tag#children#0;tag#admin#0;tag#resources#0;tag#acl#0;tag#config#0" expanded="true" />
+            <element signature="tag#system#0;tag#children#0;tag#admin#0;tag#resources#0;tag#acl#0;tag#config#0" expanded="true" />
+            <element signature="tag#children#0;tag#system#0;tag#children#0;tag#admin#0;tag#resources#0;tag#acl#0;tag#config#0" expanded="true" />
+            <element signature="tag#config#0;tag#children#0;tag#system#0;tag#children#0;tag#admin#0;tag#resources#0;tag#acl#0;tag#config#0" expanded="true" />
+            <element signature="tag#children#0;tag#config#0;tag#children#0;tag#system#0;tag#children#0;tag#admin#0;tag#resources#0;tag#acl#0;tag#config#0" expanded="true" />
+            <element signature="tag#hackathon#0;tag#children#0;tag#config#0;tag#children#0;tag#system#0;tag#children#0;tag#admin#0;tag#resources#0;tag#acl#0;tag#config#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/code/community/Hackathon/HoneySpam/Model/Checker.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="45" selection-start="1982" selection-end="1982" vertical-scroll-proportion="-37.5">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/code/community/Hackathon/HoneySpam/etc/system.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="93" column="43" selection-start="4382" selection-end="4400" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="tag#tabs#0;tag#config#0" expanded="true" />
+            <element signature="tag#hackathon#0;tag#tabs#0;tag#config#0" expanded="true" />
+            <element signature="tag#enableHoneypotName#0;tag#fields#0;tag#honeyspam#0;tag#groups#0;tag#hackathon#0;tag#sections#0;tag#config#0" expanded="true" />
+            <element signature="tag#honeypotName#0;tag#fields#0;tag#honeyspam#0;tag#groups#0;tag#hackathon#0;tag#sections#0;tag#config#0" expanded="true" />
+            <element signature="tag#enableHoneypotAccountCreateTime#0;tag#fields#0;tag#honeyspam#0;tag#groups#0;tag#hackathon#0;tag#sections#0;tag#config#0" expanded="true" />
+            <element signature="tag#honeypotAccountCreateTime#0;tag#fields#0;tag#honeyspam#0;tag#groups#0;tag#hackathon#0;tag#sections#0;tag#config#0" expanded="true" />
+            <element signature="tag#enableSpamIndexing#0;tag#fields#0;tag#honeyspam#0;tag#groups#0;tag#hackathon#0;tag#sections#0;tag#config#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/code/community/Hackathon/HoneySpam/etc/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="tag#config#0" expanded="true" />
+            <element signature="tag#modules#0;tag#config#0" expanded="true" />
+            <element signature="tag#Hackathon_HoneySpam#0;tag#modules#0;tag#config#0" expanded="true" />
+            <element signature="tag#global#0;tag#config#0" expanded="true" />
+            <element signature="tag#models#0;tag#global#0;tag#config#0" expanded="true" />
+            <element signature="tag#hackathon_honeyspam#0;tag#models#0;tag#global#0;tag#config#0" expanded="true" />
+            <element signature="tag#blocks#0;tag#global#0;tag#config#0" expanded="true" />
+            <element signature="tag#hackathon_honeyspam#0;tag#blocks#0;tag#global#0;tag#config#0" expanded="true" />
+            <element signature="tag#helpers#0;tag#global#0;tag#config#0" expanded="true" />
+            <element signature="tag#hackathon_honeyspam#0;tag#helpers#0;tag#global#0;tag#config#0" expanded="true" />
+            <element signature="tag#frontend#0;tag#config#0" expanded="true" />
+            <element signature="tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+            <element signature="tag#controller_action_predispatch_customer_account_createpost#0;tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+            <element signature="tag#observers#0;tag#controller_action_predispatch_customer_account_createpost#0;tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+            <element signature="tag#hackathon_honeyspam#0;tag#observers#0;tag#controller_action_predispatch_customer_account_createpost#0;tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+            <element signature="tag#controller_action_predispatch_review_product_post#0;tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+            <element signature="tag#observers#0;tag#controller_action_predispatch_review_product_post#0;tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+            <element signature="tag#hackathon_honeyspam#0;tag#observers#0;tag#controller_action_predispatch_review_product_post#0;tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+            <element signature="tag#controller_action_predispatch_customer_account_create#0;tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+            <element signature="tag#observers#0;tag#controller_action_predispatch_customer_account_create#0;tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+            <element signature="tag#hackathon_honeyspam#0;tag#observers#0;tag#controller_action_predispatch_customer_account_create#0;tag#events#0;tag#frontend#0;tag#config#0" expanded="true" />
+            <element signature="tag#layout#0;tag#frontend#0;tag#config#0" expanded="true" />
+            <element signature="tag#updates#0;tag#layout#0;tag#frontend#0;tag#config#0" expanded="true" />
+            <element signature="tag#hackathon_honeyspam#0;tag#updates#0;tag#layout#0;tag#frontend#0;tag#config#0" expanded="true" />
+            <element signature="tag#default#0;tag#config#0" expanded="true" />
+            <element signature="tag#hackathon#0;tag#default#0;tag#config#0" expanded="true" />
+            <element signature="tag#honeyspam#0;tag#hackathon#0;tag#default#0;tag#config#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/code/community/Hackathon/HoneySpam/Model/Observer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="52" selection-start="3009" selection-end="3009" vertical-scroll-proportion="0.84228975">
+        <state line="96" column="60" selection-start="3138" selection-end="3138" vertical-scroll-proportion="0.8936916">
           <folding />
         </state>
       </provider>

@@ -38,7 +38,9 @@ class Hackathon_HoneySpam_Model_Observer
             $this->_checkTimestamp();
         }
 
-        $this->_indexLoginParams();
+        if (Mage::getStoreConfig('hackathon/honeyspam/enableSpamIndexing')) {
+            $this->_indexLoginParams();
+        }
     }
 
     public function controllerActionPredispatchBlockReviewForm()
@@ -87,11 +89,12 @@ class Hackathon_HoneySpam_Model_Observer
     // Invoke indexing
     public function _indexLoginParams() {
 
-        $checker = Mage::getModel('hackathon_honeypot/checker');
+        $checker = Mage::getModel('hackathon_honeyspam/checker');
 
-        if ( $checker->init(Mage::app()->getRequest()->getParams()) > 3) {
-            Mage::throwException('Spam index bad!');
+        $return = $checker->init(Mage::app()->getRequest()->getParams());
+
+        if ($return >= 9) {
+            Mage::throwException('Spam index at ' . $return);
         }
-
     }
 }
