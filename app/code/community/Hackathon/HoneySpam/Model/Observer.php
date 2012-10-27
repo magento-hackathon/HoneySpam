@@ -16,7 +16,14 @@ class Hackathon_HoneySpam_Model_Observer
             $this->_checkTimestamp($observer);
         }
     }
-
+    
+    public function controllerActionPredispatchBlockReviewForm() {
+        if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotName')) {
+                $this->_checkHoneypot($observer);
+            }
+        
+    }
+    
     /**
      * validate honeypot field
      *

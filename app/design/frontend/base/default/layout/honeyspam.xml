@@ -28,21 +28,16 @@
         </reference>
     </default>
     
-    <customer_account_login>
-        <block type="core/text_list" name="form.additional.info">
-            <block type="hackathon_honeyspam/honeypot" name="honeypot" template="hackathon/honeyspam/honeypot.html" />
-        </block>
-    </customer_account_login>
-
-    <customer_logged_in>
-        <block type="core/text_list" name="form.additional.info">
-            <block type="hackathon_honeyspam/honeypot" name="honeypot" template="hackathon/honeyspam/honeypot.html" />
-        </block>
-    </customer_logged_in>
-
     <customer_account_create>
         <reference name="form.additional.info">
             <block type="hackathon_honeyspam/honeypot" name="honeyspam.honeypot" template="hackathon/honeyspam/honeypot.phtml" />
         </reference>
     </customer_account_create>
+  
+    <review_product_list>
+        <reference name="product.review.form.fields.before">
+            <block type="hackathon_honeyspam/honeypot" name="honeyspam.honeypot" template="hackathon/honeyspam/honeypot.phtml" />
+        </reference>
+    </review_product_list>
+
 </layout>

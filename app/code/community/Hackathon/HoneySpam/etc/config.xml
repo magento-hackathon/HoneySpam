@@ -1,4 +1,26 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category  Hackathon
+ * @package   Hackathon_HoneySpam
+ * @author    Andreas Emer <honeyspam@emdec.de>
+ * @copyright 2012 Magento Hackathon
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @link      http://www.magento-hackathon.de/
+ */
+-->
 <config>
     <modules>
         <Hackathon_HoneySpam>
@@ -32,6 +54,15 @@
                     </hackathon_honeyspam>
                 </observers>
             </controller_action_predispatch_customer_account_createpost>
+            
+            <controller_action_predispatch_review_product_post>
+                <observers>
+                    <hackathon_honeyspam>
+                        <class>Hackathon_HoneySpam_Model_Observer</class>
+                        <method>controllerActionPredispatchBlockReviewForm</method>
+                    </hackathon_honeyspam>
+                </observers>
+            </controller_action_predispatch_review_product_post>
 
             <controller_action_predispatch_customer_account_create>
                 <observers>
