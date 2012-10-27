@@ -22,21 +22,23 @@
  */
 -->
 <layout>
-    <default>
+    <honeypot>
         <reference name="head">
             <action method="addJs"><script>hackathon/HoneySpam/honeyspam.js</script></action>
         </reference>
-    </default>
-    
+    </honeypot>
+
     <customer_account_create>
+        <update handle="honeypot"/>
         <reference name="form.additional.info">
             <block type="hackathon_honeyspam/honeypot" name="honeyspam.honeypot" template="hackathon/honeyspam/honeypot.phtml" />
         </reference>
     </customer_account_create>
-  
+
     <review_product_list>
+        <update handle="honeypot"/>
         <reference name="product.review.form.fields.before">
-            <block type="hackathon_honeyspam/honeypot" name="honeyspam.honeypot" template="hackathon/honeyspam/honeypot.phtml" />
+                   <block type="hackathon_honeyspam/honeypot" name="honeyspam.honeypot" template="hackathon/honeyspam/honeypot.phtml" />
         </reference>
     </review_product_list>
 
