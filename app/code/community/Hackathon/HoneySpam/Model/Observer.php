@@ -38,6 +38,10 @@ class Hackathon_HoneySpam_Model_Observer
         if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotAccountCreateTime')) {
             $this->_checkTimestamp();
         }
+
+        if (Mage::getStoreConfig('hackathon/honeyspam/enableSpamIndexing')) {
+            $this->_indexLoginParams();
+        }
     }
 
     public function controllerActionPredispatchBlockReviewForm()
@@ -89,5 +93,17 @@ class Hackathon_HoneySpam_Model_Observer
     {
         $session = Mage::getSingleton('customer/session');
         $session->setAccountCreateTime(time());
+    }
+
+    // Invoke indexing
+    public function _indexLoginParams() {
+
+        $checker = Mage::getModel('hackathon_honeyspam/checker');
+
+        $return = $checker->init(Mage::app()->getRequest()->getParams());
+
+        if ($return >= 9) {
+            Mage::throwException('Spam index at ' . $return);
+        }
     }
 }
