@@ -84,6 +84,15 @@
                 </hackathon_honeyspam>
             </updates>
         </layout>
+        <routers>
+            <hackathon_honeyspam>
+                <use>standard</use>
+                <args>
+                    <module>Hackathon_HoneySpam</module>
+                    <frontName>honeyspam</frontName>
+                </args>
+            </hackathon_honeyspam>
+        </routers>
     </frontend>
     <default>
         <hackathon>
