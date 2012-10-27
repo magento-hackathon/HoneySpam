@@ -8,8 +8,13 @@ class Hackathon_HoneySpam_Model_Observer
      */
     public function controllerActionPredispatchCustomerAccountCreatepost($observer)
     {
-        $this->_checkHoneypot($observer);
-        $this->_checkTimestamp($observer);
+        if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotName')) {
+            $this->_checkHoneypot($observer);
+        }
+
+        if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotAccountCreateTime')) {
+            $this->_checkTimestamp($observer);
+        }
     }
 
     /**

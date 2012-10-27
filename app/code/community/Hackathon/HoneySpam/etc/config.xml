@@ -53,7 +53,10 @@
     <default>
         <hackathon>
             <honeyspam>
+                <enableHoneypotName>1</enableHoneypotName>
                 <honeypotName>2good4you</honeypotName>
+
+                <enableHoneypotAccountCreateTime>1</enableHoneypotAccountCreateTime>
                 <honeypotAccountCreateTime>5</honeypotAccountCreateTime>
             </honeyspam>
         </hackathon>
