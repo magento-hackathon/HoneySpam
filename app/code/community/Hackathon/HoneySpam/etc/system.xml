@@ -54,7 +54,7 @@
                         </enableHoneypotAccountCreateTime>
 
                         <honeypotAccountCreateTime>
-                            <label>Minimum time for registration</label>
+                            <label>Minimum time for registration in seconds</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>40</sort_order>
                             <show_in_default>1</show_in_default>
