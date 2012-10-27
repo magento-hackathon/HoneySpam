@@ -1,7 +1,7 @@
 <?php
 class Hackathon_HoneySpam_Block_Honeypot extends Mage_Core_Block_Template
 {
-    protected $_template = 'hackathon/honeyspam/honeypot.html';
+    protected $_template = 'hackathon/honeyspam/honeypot.phtml';
 
     protected function _construct()
     {
