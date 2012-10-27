@@ -58,7 +58,7 @@
 
                 <enableHoneypotAccountCreateTime>1</enableHoneypotAccountCreateTime>
                 <honeypotAccountCreateTime>5</honeypotAccountCreateTime>
-                
+
                 <honeypotName>url</honeypotName>
             </honeyspam>
         </hackathon>
