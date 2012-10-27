@@ -27,12 +27,20 @@
             <controller_action_predispatch_customer_account_createpost>
                 <observers>
                     <hackathon_honeyspam>
-                        <type>singleton</type>
                         <class>Hackathon_HoneySpam_Model_Observer</class>
-                        <method>checkHoneypot</method>
+                        <method>controllerActionPredispatchCustomerAccountCreatepost</method>
                     </hackathon_honeyspam>
                 </observers>
             </controller_action_predispatch_customer_account_createpost>
+
+            <controller_action_predispatch_customer_account_create>
+                <observers>
+                    <hackathon_honeyspam>
+                        <class>Hackathon_HoneySpam_Model_Observer</class>
+                        <method>controllerActionPredispatchCustomerAccountCreate</method>
+                    </hackathon_honeyspam>
+                </observers>
+            </controller_action_predispatch_customer_account_create>
         </events>
         <layout>
             <updates>
