@@ -5,7 +5,7 @@ If this field gets filled and the Form is send, there appears a error message an
 
 There is also a check if this form is to fast transmitted, a human normally takes a couple of Seconds or more.
 
-You can enable and disable the functionalitys or set the time how long it should take to transmit this forms.
+You can enable and disable the functionalitys or set the time how long it should take to transmit this forms in the Magento Admin Backend.
 
 
 ## Installation
