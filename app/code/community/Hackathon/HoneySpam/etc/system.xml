@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <hackathon translate="label" module="hackathon_honeyspam">
+            <label>Hackathon</label>
+            <sort_order>100</sort_order>
+        </hackathon>
+    </tabs>
+
+    <sections>
+        <hackathon translate="label" module="hackathon_honeyspam">
+            <label>Hackathon</label>
+            <tab>hackathon</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <honeyspam translate="label" module="hackathon_honeyspam">
+                    <label>Hackathon Honeyspam</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enableHoneypotName>
+                            <label>Enable hidden honepot field</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enableHoneypotName>
+
+                        <honeypotName>
+                            <label>Hidden field name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </honeypotName>
+
+                        <enableHoneypotAccountCreateTime>
+                            <label>Enable register time check</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enableHoneypotAccountCreateTime>
+
+                        <honeypotAccountCreateTime>
+                            <label>Minimum time for registration</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </honeypotAccountCreateTime>
+                    </fields>
+                </honeyspam>
+            </groups>
+        </hackathon>
+    </sections>
+</config>
