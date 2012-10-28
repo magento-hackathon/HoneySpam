@@ -35,7 +35,7 @@
 
     <sections>
         <hackathon translate="label" module="hackathon_honeyspam">
-            <label>Hackathon</label>
+            <label>HoneySpam</label>
             <tab>hackathon</tab>
             <frontend_type>text</frontend_type>
             <sort_order>10</sort_order>
@@ -44,7 +44,7 @@
             <show_in_store>1</show_in_store>
             <groups>
                 <honeyspam translate="label" module="hackathon_honeyspam">
-                    <label>Hackathon Honeyspam</label>
+                    <label>Hackathon HoneySpam</label>
                     <sort_order>10</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>

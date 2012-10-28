@@ -30,6 +30,7 @@ class Hackathon_HoneySpam_Model_Observer
      */
     public function controllerActionPredispatchCustomerAccountCreatepost()
     {
+
         if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotName')) {
             $this->_checkHoneypot();
         }
@@ -59,7 +60,11 @@ class Hackathon_HoneySpam_Model_Observer
         /* @var $helper Hackathon_HoneySpam_Helper_Data */
         $helper = Mage::helper('hackathon_honeyspam');
         if (strlen(Mage::app()->getRequest()->getParam($helper->getHoneypotName()))) {
-            Mage::throwException('Honeypot filled. Aborted.');
+            Mage::log('Honeypot Input filled. Aborted.',Zend_Log::WARN);
+
+            $e = new Mage_Core_Controller_Varien_Exception();
+            $e->prepareForward('index','error','honeyspam');
+            throw $e;
         }
     }
 
@@ -73,7 +78,11 @@ class Hackathon_HoneySpam_Model_Observer
         if (
             !$session->getAccountCreateTime(false) || ($session->getAccountCreateTime() > (time() - $accountCreateTime))
         ) {
-            Mage::throwException('Honeypot catched');
+            Mage::log('Honeypot Timestamp filled. Aborted.',Zend_Log::WARN);
+
+            $e = new Mage_Core_Controller_Varien_Exception();
+            $e->prepareForward('index','error','honeyspam');
+            throw $e;
         }
     }
 

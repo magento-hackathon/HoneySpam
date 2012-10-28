@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<!--
+<?php
 /**
  * Magento
  *
@@ -24,26 +23,16 @@
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      http://www.magento-hackathon.de/
  */
--->
-<config>
-    <acl>
-        <resources>
-            <admin>
-                <children>
-                    <system>
-                        <children>
-                            <config>
-                                <children>
-                                    <hackathon>
-                                        <title>Hackathon HoneySpam Configuration</title>
-                                        <sort_order>50</sort_order>
-                                    </hackathon>
-                                </children>
-                            </config>
-                        </children>
-                    </system>
-                </children>
-            </admin>
-        </resources>
-    </acl>
-</config>
+class Hackathon_HoneySpam_ErrorController extends Mage_Core_Controller_Front_Action
+{
+
+    public function indexAction()
+    {
+        $this->loadLayout();
+
+        $this->renderLayout();
+    }
+
+
+
+}

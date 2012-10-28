@@ -51,4 +51,10 @@
         </reference>
     </review_product_list>
 
+    <hackathon_honeyspam_error_index>
+        <reference name="content">
+            <block type="core/template" name="honeyspam.error" template="hackathon/honeyspam/error.phtml"/>
+        </reference>
+    </hackathon_honeyspam_error_index>
+
 </layout>
