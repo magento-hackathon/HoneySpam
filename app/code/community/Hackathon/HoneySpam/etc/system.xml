@@ -100,6 +100,17 @@
                             <show_in_store>1</show_in_store>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                         </enableSpamIndexing>
+
+                        <spamIndexLevel>
+                            <label>Set max. spam index trust level</label>
+                            <hint>An index of 3.5 should be enough to block average spam logins</hint>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enableSpamIndexing>1</enableSpamIndexing></depends>
+                        </spamIndexLevel>
                     </fields>
                 </honeyspam>
             </groups>

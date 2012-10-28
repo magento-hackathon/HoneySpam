@@ -1,10 +1,27 @@
 <?php
 /**
- * Created by JetBrains PhpStorm.
- * User: blaber
- * Date: 27.10.12
- * Time: 15:44
- * To change this template use File | Settings | File Templates.
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category  Hackathon
+ * @package   Hackathon_HoneySpam
+ * @author    Andreas Emer <honeyspam@emdec.de>
+ * @author    Fabian Blechschmidt <hackathon@fabian-blechschmidt.de>
+ * @author    Sascha Wohlgemuth <sascha.wohlgemuth@gmail.com>
+ * @author    Bastian Ike <bastian.ike@gmail.com>
+ * @author    Peter Ukener <peterukener@gmail.com>
+ * @copyright 2012 Magento Hackathon
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @link      http://www.magento-hackathon.de/
  */
 
 class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract {
@@ -55,7 +72,7 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract {
 
         foreach ($params as $param) {
             if (strlen($param) >= 15) { // item has more than 15 chars = spam possibility increases a little
-                $_index += 0.5;
+                $_index += 1;
                 Mage::log("SPAM: " . $param . " has more than 15 Characters");
             }
 
@@ -65,23 +82,23 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract {
             }
 
             if (preg_match("([b-df-hj-np-tv-z]{3})", $param)) { // More than 3 consecutive consonants == Spam!
-                $_index += 0.5;
+                $_index += 1;
                 Mage::log("SPAM: " . $param . " contains 3 or more consecutive consonants");
             }
 
             if (preg_match("([aeiou]{3})", $param)) { // More than 3 consecutive vouwels == spam
-                $_index += 0.5;
+                $_index += 1;
                 Mage::log("SPAM: " . $param . " contains 3 consecutive vowels");
             }
 
             if (preg_match("([A-Z]{2,})", substr($param, -4))) { // At least two CAPITALS at the end of a string == Spam!
-                $_index += 0.5;
+                $_index += 1;
                 Mage::log("SPAM: " . $param . " has at least 2 CAPITAL letters at the end");
             }
 
             //preg_match_all("([A-Z])", $param, $matches);
             if (preg_match_all("([A-Z])", $param, $matches) > 3) { // Param contains more than 3 Capital letters at all
-                $_index += 0.5;
+                $_index += 1;
                 Mage::log("SPAM: " . $param . " contains more than 3 CAPITALS at all");
             }
 
