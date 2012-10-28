@@ -77,7 +77,7 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract {
             }
 
             if (is_numeric($param)) { // Param contains numbers only == spam (heavy rating!
-                $_index += 8.5;
+                $_index += 2.5;
                 Mage::log("SPAM: " . $param . " contains only numbers");
             }
 
