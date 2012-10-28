@@ -59,7 +59,7 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract {
                 Mage::log("SPAM: " . $param . " has more than 15 Characters");
             }
 
-            if (is_numeric($param)) { // Param contains numbers only == spam!
+            if (is_numeric($param)) { // Param contains numbers only == spam (heavy rating!
                 $_index += 8.5;
                 Mage::log("SPAM: " . $param . " contains only numbers");
             }
@@ -79,10 +79,15 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract {
                 Mage::log("SPAM: " . $param . " has at least 2 CAPITAL letters at the end");
             }
 
-            preg_match_all("([A-Z])", $param, $matches);
-            if ($matches > 3) { // Param contains more than 3 Capital letters at all
+            //preg_match_all("([A-Z])", $param, $matches);
+            if (preg_match_all("([A-Z])", $param, $matches) > 3) { // Param contains more than 3 Capital letters at all
                 $_index += 0.5;
                 Mage::log("SPAM: " . $param . " contains more than 3 CAPITALS at all");
+            }
+
+            if (preg_match("([a-z])", substr($param, 1, 1)) && preg_match("([A-Z])", substr($param, 1, 1))) {   // Param starts with a lowercase+uppercase
+                $_index += 1;
+                Mage::log("SPAM: " . $param . " starts with a combination lc/uc. E.g. aJohn, bSmith...");
             }
         }
 
