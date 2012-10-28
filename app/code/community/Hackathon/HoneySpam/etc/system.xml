@@ -103,7 +103,7 @@
 
                         <spamIndexLevel>
                             <label>Set max. spam index trust level</label>
-                            <hint>An index of 3.5 should be enough to block average spam logins</hint>
+                            <comment>An index of 3.5 should be enough to block average spam logins</comment>
                             <frontend_type>text</frontend_type>
                             <sort_order>60</sort_order>
                             <show_in_default>1</show_in_default>
