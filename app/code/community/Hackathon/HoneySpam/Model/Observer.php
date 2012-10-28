@@ -103,7 +103,11 @@ class Hackathon_HoneySpam_Model_Observer
         $return = $checker->init(Mage::app()->getRequest()->getParams());
 
         if ($return >= 9) {
-            Mage::throwException('Spam index at ' . $return);
+            Mage::log("Honeypot spam index at $return. Aborted.",Zend_Log::WARN);
+
+            $e = new Mage_Core_Controller_Varien_Exception();
+            $e->prepareForward('index','error','honeyspam');
+            throw $e;
         }
     }
 }
