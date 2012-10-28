@@ -81,14 +81,19 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract {
                 Mage::log("SPAM: " . $param . " contains only numbers");
             }
 
-            if (preg_match("([b-df-hj-np-tv-z]{3})", $param)) { // More than 3 consecutive consonants == Spam!
-                $_index += 1;
-                Mage::log("SPAM: " . $param . " contains 3 or more consecutive consonants");
+            if (preg_match("([b-df-hj-np-tv-z]{3})", $param, $matches)) { // More than 3 consecutive consonants == Spam!
+                if (!($matches[0] == "rrm")) {  // Herrmann is okay
+                    $_index += 1;
+                    Mage::log("SPAM: " . $param . " contains 3 or more consecutive consonants");
+                }
             }
 
-            if (preg_match("([aeiou]{3})", $param)) { // More than 3 consecutive vouwels == spam
-                $_index += 1;
-                Mage::log("SPAM: " . $param . " contains 3 consecutive vowels");
+            if (preg_match("([aeiou]{3})", $param, $matches)) { // More than 3 consecutive vouwels == spam
+                if (!($matches[0] == "eie")) {
+                    Mage::log("matches: " . $matches[0]); // Meier is okay
+                    $_index += 1;
+                    Mage::log("SPAM: " . $param . " contains 3 consecutive vowels");
+                }
             }
 
             if (preg_match("([A-Z]{2,})", substr($param, -4))) { // At least two CAPITALS at the end of a string == Spam!
@@ -96,7 +101,6 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract {
                 Mage::log("SPAM: " . $param . " has at least 2 CAPITAL letters at the end");
             }
 
-            //preg_match_all("([A-Z])", $param, $matches);
             if (preg_match_all("([A-Z])", $param, $matches) > 3) { // Param contains more than 3 Capital letters at all
                 $_index += 1;
                 Mage::log("SPAM: " . $param . " contains more than 3 CAPITALS at all");
