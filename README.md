@@ -11,9 +11,36 @@ Freshly added: Regex-checking on all input-fields to determine a loose index for
 
 ## Installation
 
-Just copy the App folder to your Magento root directory and refresh your Magento Cache in the Shop Backend.
+### Installation with modman
 
+Clone it within modman via `https://` or `git://`:
 
-## Testing ##
+    modman clone https://github.com/magento-hackathon/HoneySpam.git
+    modman clone git@github.com:magento-hackathon/HoneySpam.git
 
-After the Installation you should be able to find a input field with the id="url" in the Customer Register and in the Product Review Form, which should be hidden with JS.
+### Installation without modman
+
+Copy all the files in your magento root directory
+
+### After installation
+
+Clean the cache after installation!
+
+## Testing
+
+After the Installation you should be able to find a input field with the id="url" in the Customer Register and in the Product Review Form, which should be hidden with our JS.
+
+## Further Information
+
+### Core Contributors
+
+- Celldweller
+- Andreas Emer
+- Bastian Ike
+- Fabian Blechschmidt
+
+### Current Status of Project
+
+Complete and working.
+
+If you found errors or have ideas, [open an issue](https://github.com/magento-hackathon/HoneySpam/issues) on github or a pull request!
