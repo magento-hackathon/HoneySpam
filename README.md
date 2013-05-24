@@ -34,6 +34,7 @@ After the Installation you should be able to find a input field with the id="url
 
 ### Core Contributors
 
+- kortwotze
 - Celldweller
 - Andreas Emer
 - Bastian Ike
