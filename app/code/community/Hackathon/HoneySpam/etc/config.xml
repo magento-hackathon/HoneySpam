@@ -76,6 +76,16 @@
                     </hackathon_honeyspam>
                 </observers>
             </controller_action_predispatch_customer_account_create>
+
+            <controller_action_predispatch_contacts_index_post>
+                <observers>
+                    <hackathon_honeyspam>
+                        <class>Hackathon_HoneySpam_Model_Observer</class>
+                        <method>controllerActionPredispatchContactsIndexPost</method>
+                    </hackathon_honeyspam>
+                </observers>
+
+            </controller_action_predispatch_contacts_index_post>
         </events>
         <layout>
             <updates>

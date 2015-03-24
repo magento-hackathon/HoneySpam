@@ -49,7 +49,13 @@ class Hackathon_HoneySpam_Model_Observer
         if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotName')) {
             $this->_checkHoneypot();
         }
+    }
 
+    public function controllerActionPredispatchContactsIndexPost()
+    {
+        if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotName')) {
+            $this->_checkHoneypot();
+        }
     }
 
     /**
