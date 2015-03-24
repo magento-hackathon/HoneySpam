@@ -1,0 +1,11 @@
+{
+    "name": "magento-hackathon/honeyspam",
+    "type": "magento-module",
+    "description": "Spam protection module for various forms using honey pots.",
+    "homepage": "https://github.com/magento-hackathon/HoneySpam",
+    "require": {
+        "php": ">=5.3",
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
+
