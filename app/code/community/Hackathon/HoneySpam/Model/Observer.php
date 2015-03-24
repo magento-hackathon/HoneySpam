@@ -30,7 +30,6 @@ class Hackathon_HoneySpam_Model_Observer
      */
     public function controllerActionPredispatchCustomerAccountCreatepost()
     {
-
         if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotName')) {
             $this->_checkHoneypot();
         }
@@ -45,6 +44,13 @@ class Hackathon_HoneySpam_Model_Observer
     }
 
     public function controllerActionPredispatchBlockReviewForm()
+    {
+        if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotName')) {
+            $this->_checkHoneypot();
+        }
+    }
+
+    public function controllerActionPredispatchCustomerAccountForgotPasswordPost()
     {
         if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotName')) {
             $this->_checkHoneypot();

@@ -77,6 +77,15 @@
                 </observers>
             </controller_action_predispatch_customer_account_create>
 
+            <controller_action_predispatch_customer_account_forgotpasswordpost>
+                <observers>
+                    <hackathon_honeyspam>
+                        <class>Hackathon_HoneySpam_Model_Observer</class>
+                        <method>controllerActionPredispatchCustomerAccountForgotPasswordPost</method>
+                    </hackathon_honeyspam>
+                </observers>
+            </controller_action_predispatch_customer_account_forgotpasswordpost>
+
             <controller_action_predispatch_contacts_index_post>
                 <observers>
                     <hackathon_honeyspam>
