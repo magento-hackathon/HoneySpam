@@ -42,6 +42,14 @@
         </reference>
     </customer_account_create>
 
+    <customer_account_forgotpassword>
+        <update handle="honeypot"/>
+        <reference name="form.additional.info">
+            <block type="hackathon_honeyspam/honeypot" name="honeyspam.honeypot"
+                   template="hackathon/honeyspam/honeypot.phtml"/>
+        </reference>
+    </customer_account_forgotpassword>
+
     <review_product_list>
         <update handle="honeypot"/>
         <reference name="product.review.form.fields.before">
