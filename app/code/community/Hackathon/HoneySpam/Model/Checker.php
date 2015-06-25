@@ -52,7 +52,7 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract {
         // Two fields...
         } else if ($firstname == $emailprefix) {
             $_index += 1;
-            if ($lastname = $firstname) {
+            if ($lastname == $firstname) {
                 // the third one?
                 $_index += 2;
             }
