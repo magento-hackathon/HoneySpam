@@ -28,7 +28,7 @@
 <config>
     <modules>
         <Hackathon_HoneySpam>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </Hackathon_HoneySpam>
     </modules>
     <global>
