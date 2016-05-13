@@ -28,7 +28,7 @@ Clean the cache after installation!
 
 #### Contacts form modifications
 
-Copy the file `app/design/frontend/default/template/contacts/form.phtml` to your own theme and insert the code
+Copy the file `app/design/frontend/base/default/template/contacts/form.phtml` to your own theme and insert the code
 
      <?php echo $this->getChildHtml('form_fields_before') ?>
      
