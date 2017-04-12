@@ -64,6 +64,13 @@ class Hackathon_HoneySpam_Model_Observer
         }
     }
 
+    public function controllerActionPredispatchNewsletterSubscriberNew()
+    {
+        if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotName')) {
+            $this->_checkHoneypot();
+        }
+    }
+
     /**
      * validate honeypot field
      */
