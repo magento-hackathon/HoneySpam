@@ -26,16 +26,33 @@
 */
 -->
 <layout>
-    <honeypot>
+    <default>
         <reference name="head">
             <action method="addJs">
                 <script>hackathon/HoneySpam/honeyspam.js</script>
             </action>
         </reference>
-    </honeypot>
+        <!-- base/default theme -->
+        <reference name="left.newsletter">
+            <block type="core/text_list" name="newsletter.form.fields.before" as="form_fields_before" translate="label">
+                <block type="hackathon_honeyspam/honeypot" name="honeyspam.honeypot" template="hackathon/honeyspam/honeypot.phtml"/>
+            </block>
+        </reference>
+        <!-- rwd/default theme -->
+        <reference name="footer.newsletter">
+            <block type="core/text_list" name="newsletter.form.fields.before" as="form_fields_before" translate="label">
+                <block type="hackathon_honeyspam/honeypot" name="honeyspam.honeypot" template="hackathon/honeyspam/honeypot.phtml"/>
+            </block>
+        </reference>
+        <!-- default/modern theme -->
+        <reference name="newsletter">
+            <block type="core/text_list" name="newsletter.form.fields.before" as="form_fields_before" translate="label">
+                <block type="hackathon_honeyspam/honeypot" name="honeyspam.honeypot" template="hackathon/honeyspam/honeypot.phtml"/>
+            </block>
+        </reference>
+    </default>
 
     <customer_account_create>
-        <update handle="honeypot"/>
         <reference name="form.additional.info">
             <block type="hackathon_honeyspam/honeypot" name="honeyspam.honeypot"
                    template="hackathon/honeyspam/honeypot.phtml"/>
@@ -43,7 +60,6 @@
     </customer_account_create>
 
     <customer_account_forgotpassword>
-        <update handle="honeypot"/>
         <reference name="form.additional.info">
             <block type="hackathon_honeyspam/honeypot" name="honeyspam.honeypot"
                    template="hackathon/honeyspam/honeypot.phtml"/>
@@ -51,7 +67,6 @@
     </customer_account_forgotpassword>
 
     <review_product_list>
-        <update handle="honeypot"/>
         <reference name="product.review.form.fields.before">
             <block type="hackathon_honeyspam/honeypot" name="honeyspam.honeypot"
                    template="hackathon/honeyspam/honeypot.phtml"/>
@@ -65,7 +80,6 @@
     </hackathon_honeyspam_error_index>
 
     <contacts_index_index>
-        <update handle="honeypot"/>
         <reference name="contactForm">
             <block type="core/text_list" name="contacts.form.fields.before" as="form_fields_before" translate="label">
                 <block type="hackathon_honeyspam/honeypot" name="honeyspam.honeypot"
