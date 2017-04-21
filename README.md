@@ -11,6 +11,9 @@ Freshly added: Regex-checking on all input-fields to determine a loose index for
 
 ## Installation
 
+### Compiler
+Please disable Compiler. In our experience it doens't give performance wins and costs a lot of time while debugging.
+
 ### Installation with modman
 
 Clone it within modman via `https://` or `git://`:
