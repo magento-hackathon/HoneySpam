@@ -24,6 +24,8 @@
  */
 
 document.observe('dom:loaded', function () {
-    $('url').hide();
+    if (typeof $('url') !== 'undefined' && $('url') !== null) {
+        $('url').hide();
+    }
 });
 
