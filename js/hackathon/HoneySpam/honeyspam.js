@@ -24,7 +24,6 @@
  */
 
 document.observe('dom:loaded', function () {
-  
     var mhhsInput = $$('.mhhs-input');
     if (mhhsInput.length > 0 && typeof mhhsInput !== 'undefined' && mhhsInput !== null) {
         mhhsInput.each(Element.hide);
