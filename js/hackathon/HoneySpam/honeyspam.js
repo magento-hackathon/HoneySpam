@@ -24,8 +24,7 @@
  */
 
 document.observe('dom:loaded', function () {
-    if (typeof $('url') !== 'undefined' && $('url') !== null) {
-        $('url').hide();
+    if (typeof $('.mhhs-input') !== 'undefined' && $('.mhhs-input') !== null) {
+        $('.mhhs-input').hide();
     }
 });
-
