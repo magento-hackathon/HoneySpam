@@ -24,7 +24,9 @@
  */
 
 document.observe('dom:loaded', function () {
-    if (typeof $('.mhhs-input') !== 'undefined' && $('.mhhs-input') !== null) {
-        $('.mhhs-input').hide();
+  
+    var mhhsInput = $$('.mhhs-input');
+    if (mhhsInput.length > 0 && typeof mhhsInput !== 'undefined' && mhhsInput !== null) {
+        mhhsInput.each(Element.hide);
     }
 });
