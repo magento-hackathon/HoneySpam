@@ -31,7 +31,7 @@ Clean the cache after installation!
 
 #### Contacts form modifications
 
-Copy the file `app/design/frontend/base/default/template/contacts/form.phtml` to your own theme and insert the code
+Copy the file `app/design/frontend/{base_or_rwd}/default/template/contacts/form.phtml` to your own theme and insert the code
 
      <?php echo $this->getChildHtml('form_fields_before') ?>
      
@@ -39,7 +39,7 @@ within the `<form> ... </form>` tag.
 
 #### Newsletter Subscription Form Modifications
 
-Copy the file `app/design/frontend/base/default/template/newsletter/subscribe.phtml` to your own theme and insert the code
+Copy the file `app/design/frontend/{base_or_rwd}/default/template/newsletter/subscribe.phtml` to your own theme and insert the code
 
      <?php echo $this->getChildHtml('form_fields_before') ?>
      
