@@ -86,6 +86,7 @@
                             <label>Minimum time for registration in seconds</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>40</sort_order>
+                            <validate>validate-digits</validate>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -107,6 +108,7 @@
                             <comment>An index of 2.5 should be enough to block average spam logins The lower the level, the higher the level, the more spam gets through</comment>
                             <frontend_type>text</frontend_type>
                             <sort_order>60</sort_order>
+                            <validate>validate-number</validate>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>

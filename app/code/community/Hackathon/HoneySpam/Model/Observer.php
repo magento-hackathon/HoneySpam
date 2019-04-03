@@ -26,47 +26,48 @@
 class Hackathon_HoneySpam_Model_Observer
 {
     /**
+     * @var Hackathon_HoneySpam_Helper_Data
+     */
+    protected $helper;
+
+    /**
+     * Hackathon_HoneySpam_Model_Observer constructor.
+     */
+    public function __construct()
+    {
+        $this->helper = Mage::helper('hackathon_honeyspam');
+    }
+
+    /**
      * call rules
      */
     public function controllerActionPredispatchCustomerAccountCreatepost()
     {
-        if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotName')) {
+        if ($this->helper->isHoneypotNameEnabled()) {
             $this->_checkHoneypot();
         }
 
-        if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotAccountCreateTime')) {
+        if ($this->helper->isHoneypotAccountCreateTimeEnabled()) {
             $this->_checkTimestamp();
         }
 
-        if (Mage::getStoreConfig('hackathon/honeyspam/enableSpamIndexing')) {
+        if ($this->helper->isSpamIndexingEnabled()) {
             $this->_indexLoginParams();
         }
     }
 
-    public function controllerActionPredispatchBlockReviewForm()
+    /**
+     * Check if honeypot is filled
+     *
+     * Used for:
+     *  - controllerActionPredispatchBlockReviewForm
+     *  - controllerActionPredispatchCustomerAccountForgotPasswordPost
+     *  - controllerActionPredispatchContactsIndexPost
+     *  - controllerActionPredispatchNewsletterSubscriberNew
+     */
+    public function checkHoneypot()
     {
-        if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotName')) {
-            $this->_checkHoneypot();
-        }
-    }
-
-    public function controllerActionPredispatchCustomerAccountForgotPasswordPost()
-    {
-        if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotName')) {
-            $this->_checkHoneypot();
-        }
-    }
-
-    public function controllerActionPredispatchContactsIndexPost()
-    {
-        if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotName')) {
-            $this->_checkHoneypot();
-        }
-    }
-
-    public function controllerActionPredispatchNewsletterSubscriberNew()
-    {
-        if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotName')) {
+        if ($this->helper->isHoneypotNameEnabled()) {
             $this->_checkHoneypot();
         }
     }
@@ -76,10 +77,8 @@ class Hackathon_HoneySpam_Model_Observer
      */
     protected function _checkHoneypot()
     {
-        /* @var $helper Hackathon_HoneySpam_Helper_Data */
-        $helper = Mage::helper('hackathon_honeyspam');
-        if (strlen(Mage::app()->getRequest()->getParam($helper->getHoneypotName()))) {
-            Mage::log('Honeypot Input filled. Aborted.',Zend_Log::WARN);
+        if (strlen(Mage::app()->getRequest()->getParam($this->helper->getHoneypotName()))) {
+            $this->helper->log('Honeypot Input filled. Aborted.',Zend_Log::WARN);
 
             $e = new Mage_Core_Controller_Varien_Exception();
             $e->prepareForward('index','error','honeyspam');
@@ -93,11 +92,11 @@ class Hackathon_HoneySpam_Model_Observer
     protected function _checkTimestamp()
     {
         $session = Mage::getSingleton('customer/session');
-        $accountCreateTime = Mage::getStoreConfig('hackathon/honeyspam/honeypotAccountCreateTime');
+        $accountCreateTime = $this->helper->getHoneypotAccountCreateTime();
         if (
             !$session->getAccountCreateTime(false) || ($session->getAccountCreateTime() > (time() - $accountCreateTime))
         ) {
-            Mage::log('Honeypot Timestamp filled. Aborted.',Zend_Log::WARN);
+            $this->helper->log('Honeypot Timestamp filled. Aborted.', Zend_Log::WARN);
 
             $e = new Mage_Core_Controller_Varien_Exception();
             $e->prepareForward('index','error','honeyspam');
@@ -115,14 +114,14 @@ class Hackathon_HoneySpam_Model_Observer
     }
 
     // Invoke indexing
-    public function _indexLoginParams() {
-
+    public function _indexLoginParams()
+    {
         $checker = Mage::getModel('hackathon_honeyspam/checker');
 
         $return = $checker->init(Mage::app()->getRequest()->getParams());
 
-        if ($return >= Mage::getStoreConfig('hackathon/honeyspam/spamIndexLevel')) {
-            Mage::log("Honeypot spam index at $return. Aborted.",Zend_Log::WARN);
+        if ($return >= $this->helper->getSpamIndexLevel()) {
+            $this->helper->log("Honeypot spam index at $return. Aborted.", Zend_Log::WARN);
 
             $e = new Mage_Core_Controller_Varien_Exception();
             $e->prepareForward('index','error','honeyspam');
