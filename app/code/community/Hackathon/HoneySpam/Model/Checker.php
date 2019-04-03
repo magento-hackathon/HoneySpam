@@ -26,8 +26,12 @@
 
 class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract {
 
-    public function init($params) {
-
+    /**
+     * @param array $params
+     * @return int
+     */
+    public function init($params)
+    {
         $firstname = $params['firstname'];
         $lastname = $params['lastname'];
         $emailprefix = explode('@', $params['email']);
@@ -38,7 +42,16 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract {
         return $this->check($firstname, $lastname, $emailprefix, $params);
     }
 
-    public function check($firstname, $lastname, $emailprefix, $params) {
+    /**
+     * @param string $firstname
+     * @param string $lastname
+     * @param string $emailprefix
+     * @param array $params
+     * @return int
+     */
+    public function check($firstname, $lastname, $emailprefix, $params)
+    {
+        $logginEnabled = Mage::getStoreConfigFlag('hackathon/honeyspam/enableLogging');
 
         $_index = 0;
 
@@ -73,42 +86,56 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract {
         foreach ($params as $param) {
             if (strlen($param) >= 15) { // item has more than 15 chars = spam possibility increases a little
                 $_index += 1;
-                Mage::log("SPAM: " . $param . " has more than 15 Characters");
+                if ($logginEnabled) {
+                    Mage::log("SPAM: " . $param . " has more than 15 Characters", Zend_Log::INFO, 'honeyspam.log');
+                }
             }
 
             if (is_numeric($param)) { // Param contains numbers only == spam (heavy rating!
                 $_index += 2.5;
-                Mage::log("SPAM: " . $param . " contains only numbers");
+                if ($logginEnabled) {
+                    Mage::log("SPAM: " . $param . " contains only numbers", Zend_Log::INFO, 'honeyspam.log');
+                }
             }
 
             if (preg_match("([b-df-hj-np-tv-z]{3})", $param, $matches)) { // More than 3 consecutive consonants == Spam!
                 if (!($matches[0] == "rrm")) {  // Herrmann is okay
                     $_index += 1;
-                    Mage::log("SPAM: " . $param . " contains 3 or more consecutive consonants");
+                    if ($logginEnabled) {
+                        Mage::log("SPAM: " . $param . " contains 3 or more consecutive consonants", Zend_Log::INFO, 'honeyspam.log');
+                    }
                 }
             }
 
             if (preg_match("([aeiou]{3})", $param, $matches)) { // More than 3 consecutive vouwels == spam
                 if (!($matches[0] == "eie")) {
-                    Mage::log("matches: " . $matches[0]); // Meier is okay
                     $_index += 1;
-                    Mage::log("SPAM: " . $param . " contains 3 consecutive vowels");
+                    if ($logginEnabled) {
+                        Mage::log("matches: " . $matches[0], Zend_Log::INFO, 'honeyspam.log'); // Meier is okay
+                        Mage::log("SPAM: " . $param . " contains 3 consecutive vowels", Zend_Log::INFO, 'honeyspam.log');
+                    }
                 }
             }
 
             if (preg_match("([A-Z]{2,})", substr($param, -4))) { // At least two CAPITALS at the end of a string == Spam!
                 $_index += 1;
-                Mage::log("SPAM: " . $param . " has at least 2 CAPITAL letters at the end");
+                if ($logginEnabled) {
+                    Mage::log("SPAM: " . $param . " has at least 2 CAPITAL letters at the end", Zend_Log::INFO, 'honeyspam.log');
+                }
             }
 
             if (preg_match_all("([A-Z])", $param, $matches) > 3) { // Param contains more than 3 Capital letters at all
                 $_index += 1;
-                Mage::log("SPAM: " . $param . " contains more than 3 CAPITALS at all");
+                if ($logginEnabled) {
+                    Mage::log("SPAM: " . $param . " contains more than 3 CAPITALS at all", Zend_Log::INFO, 'honeyspam.log');
+                }
             }
 
             if (preg_match("([a-z])", substr($param, 1, 1)) && preg_match("([A-Z])", substr($param, 1, 1))) {   // Param starts with a lowercase+uppercase
                 $_index += 1;
-                Mage::log("SPAM: " . $param . " starts with a combination lc/uc. E.g. aJohn, bSmith...");
+                if ($logginEnabled) {
+                    Mage::log("SPAM: " . $param . " starts with a combination lc/uc. E.g. aJohn, bSmith...", Zend_Log::INFO, 'honeyspam.log');
+                }
             }
         }
 

@@ -30,43 +30,43 @@ class Hackathon_HoneySpam_Model_Observer
      */
     public function controllerActionPredispatchCustomerAccountCreatepost()
     {
-        if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotName')) {
+        if (Mage::getStoreConfigFlag('hackathon/honeyspam/enableHoneypotName')) {
             $this->_checkHoneypot();
         }
 
-        if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotAccountCreateTime')) {
+        if (Mage::getStoreConfigFlag('hackathon/honeyspam/enableHoneypotAccountCreateTime')) {
             $this->_checkTimestamp();
         }
 
-        if (Mage::getStoreConfig('hackathon/honeyspam/enableSpamIndexing')) {
+        if (Mage::getStoreConfigFlag('hackathon/honeyspam/enableSpamIndexing')) {
             $this->_indexLoginParams();
         }
     }
 
     public function controllerActionPredispatchBlockReviewForm()
     {
-        if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotName')) {
+        if (Mage::getStoreConfigFlag('hackathon/honeyspam/enableHoneypotName')) {
             $this->_checkHoneypot();
         }
     }
 
     public function controllerActionPredispatchCustomerAccountForgotPasswordPost()
     {
-        if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotName')) {
+        if (Mage::getStoreConfigFlag('hackathon/honeyspam/enableHoneypotName')) {
             $this->_checkHoneypot();
         }
     }
 
     public function controllerActionPredispatchContactsIndexPost()
     {
-        if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotName')) {
+        if (Mage::getStoreConfigFlag('hackathon/honeyspam/enableHoneypotName')) {
             $this->_checkHoneypot();
         }
     }
 
     public function controllerActionPredispatchNewsletterSubscriberNew()
     {
-        if (Mage::getStoreConfig('hackathon/honeyspam/enableHoneypotName')) {
+        if (Mage::getStoreConfigFlag('hackathon/honeyspam/enableHoneypotName')) {
             $this->_checkHoneypot();
         }
     }
@@ -79,7 +79,9 @@ class Hackathon_HoneySpam_Model_Observer
         /* @var $helper Hackathon_HoneySpam_Helper_Data */
         $helper = Mage::helper('hackathon_honeyspam');
         if (strlen(Mage::app()->getRequest()->getParam($helper->getHoneypotName()))) {
-            Mage::log('Honeypot Input filled. Aborted.',Zend_Log::WARN);
+            if (Mage::getStoreConfigFlag('hackathon/honeyspam/enableLogging')) {
+                Mage::log('Honeypot Input filled. Aborted.',Zend_Log::WARN, 'honeyspam.log');
+            }
 
             $e = new Mage_Core_Controller_Varien_Exception();
             $e->prepareForward('index','error','honeyspam');
@@ -97,7 +99,9 @@ class Hackathon_HoneySpam_Model_Observer
         if (
             !$session->getAccountCreateTime(false) || ($session->getAccountCreateTime() > (time() - $accountCreateTime))
         ) {
-            Mage::log('Honeypot Timestamp filled. Aborted.',Zend_Log::WARN);
+            if (Mage::getStoreConfigFlag('hackathon/honeyspam/enableLogging')) {
+                Mage::log('Honeypot Timestamp filled. Aborted.', Zend_Log::WARN, 'honeyspam.log');
+            }
 
             $e = new Mage_Core_Controller_Varien_Exception();
             $e->prepareForward('index','error','honeyspam');
@@ -115,14 +119,16 @@ class Hackathon_HoneySpam_Model_Observer
     }
 
     // Invoke indexing
-    public function _indexLoginParams() {
-
+    public function _indexLoginParams()
+    {
         $checker = Mage::getModel('hackathon_honeyspam/checker');
 
         $return = $checker->init(Mage::app()->getRequest()->getParams());
 
         if ($return >= Mage::getStoreConfig('hackathon/honeyspam/spamIndexLevel')) {
-            Mage::log("Honeypot spam index at $return. Aborted.",Zend_Log::WARN);
+            if (Mage::getStoreConfigFlag('hackathon/honeyspam/enableLogging')) {
+                Mage::log("Honeypot spam index at $return. Aborted.", Zend_Log::WARN, 'honeyspam.log');
+            }
 
             $e = new Mage_Core_Controller_Varien_Exception();
             $e->prepareForward('index','error','honeyspam');
