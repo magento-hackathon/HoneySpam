@@ -26,6 +26,8 @@
 class Hackathon_HoneySpam_Helper_Data extends Mage_Core_Helper_Abstract
 {
     const CONFIG_PATH_INPUT_NAME = 'hackathon/honeyspam/honeypotName';
+    
+    const CONFIG_PATH_ENABLE_LOG = 'hackathon/honeyspam/enableLogging';
 
     /**
      * @return string
@@ -33,5 +35,25 @@ class Hackathon_HoneySpam_Helper_Data extends Mage_Core_Helper_Abstract
     public function getHoneypotName()
     {
         return Mage::getStoreConfig(self::CONFIG_PATH_INPUT_NAME);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isLoggingEnabled()
+    {
+        return Mage::getStoreConfigFlag(self::CONFIG_PATH_ENABLE_LOG);
+    }
+
+    /**
+     * @param string $message
+     * @param int $level
+     * @return string
+     */
+    public function log($message, $level = Zend_Log::INFO)
+    {
+        if ($this->isLoggingEnabled()) {
+            Mage::log($message, $level, 'honeyspam.log');
+        }
     }
 }

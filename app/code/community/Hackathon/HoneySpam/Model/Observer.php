@@ -79,9 +79,7 @@ class Hackathon_HoneySpam_Model_Observer
         /* @var $helper Hackathon_HoneySpam_Helper_Data */
         $helper = Mage::helper('hackathon_honeyspam');
         if (strlen(Mage::app()->getRequest()->getParam($helper->getHoneypotName()))) {
-            if (Mage::getStoreConfigFlag('hackathon/honeyspam/enableLogging')) {
-                Mage::log('Honeypot Input filled. Aborted.',Zend_Log::WARN, 'honeyspam.log');
-            }
+            $helper->log('Honeypot Input filled. Aborted.',Zend_Log::WARN);
 
             $e = new Mage_Core_Controller_Varien_Exception();
             $e->prepareForward('index','error','honeyspam');
@@ -99,9 +97,9 @@ class Hackathon_HoneySpam_Model_Observer
         if (
             !$session->getAccountCreateTime(false) || ($session->getAccountCreateTime() > (time() - $accountCreateTime))
         ) {
-            if (Mage::getStoreConfigFlag('hackathon/honeyspam/enableLogging')) {
-                Mage::log('Honeypot Timestamp filled. Aborted.', Zend_Log::WARN, 'honeyspam.log');
-            }
+            /* @var $helper Hackathon_HoneySpam_Helper_Data */
+            $helper = Mage::helper('hackathon_honeyspam');
+            $helper->log('Honeypot Timestamp filled. Aborted.', Zend_Log::WARN);
 
             $e = new Mage_Core_Controller_Varien_Exception();
             $e->prepareForward('index','error','honeyspam');
@@ -126,9 +124,9 @@ class Hackathon_HoneySpam_Model_Observer
         $return = $checker->init(Mage::app()->getRequest()->getParams());
 
         if ($return >= Mage::getStoreConfig('hackathon/honeyspam/spamIndexLevel')) {
-            if (Mage::getStoreConfigFlag('hackathon/honeyspam/enableLogging')) {
-                Mage::log("Honeypot spam index at $return. Aborted.", Zend_Log::WARN, 'honeyspam.log');
-            }
+            /* @var $helper Hackathon_HoneySpam_Helper_Data */
+            $helper = Mage::helper('hackathon_honeyspam');
+            $helper->log("Honeypot spam index at $return. Aborted.", Zend_Log::WARN);
 
             $e = new Mage_Core_Controller_Varien_Exception();
             $e->prepareForward('index','error','honeyspam');
