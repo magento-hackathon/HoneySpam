@@ -48,7 +48,6 @@ class Hackathon_HoneySpam_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * @param string $message
      * @param int $level
-     * @return string
      */
     public function log($message, $level = Zend_Log::INFO)
     {
