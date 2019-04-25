@@ -30,7 +30,4 @@ class Hackathon_HoneySpam_IndexController extends Mage_Core_Controller_Front_Act
     {
         $this->_redirect('honeyspam/error/');
     }
-
-
-
 }

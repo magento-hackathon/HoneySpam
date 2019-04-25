@@ -38,6 +38,4 @@ class Hackathon_HoneySpam_Block_Honeypot extends Mage_Core_Block_Template
         $helper = Mage::helper('hackathon_honeyspam');
         return $helper->getHoneypotName();
     }
-
-
 }

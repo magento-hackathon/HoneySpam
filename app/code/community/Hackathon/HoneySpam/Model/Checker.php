@@ -74,13 +74,13 @@ class Hackathon_HoneySpam_Model_Checker
                 $_index += 2;
             }
         // Two fields...
-        } else if ($firstname == $emailprefix) {
+        } elseif ($firstname == $emailprefix) {
             $_index += 1;
             if ($lastname == $firstname) {
                 // the third one?
                 $_index += 2;
             }
-        } else if ($lastname == $emailprefix) {
+        } elseif ($lastname == $emailprefix) {
             $_index += 1;
             if ($firstname == $lastname) {
                 $_index += 2;

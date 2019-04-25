@@ -32,7 +32,4 @@ class Hackathon_HoneySpam_ErrorController extends Mage_Core_Controller_Front_Act
 
         $this->renderLayout();
     }
-
-
-
 }

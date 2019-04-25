@@ -40,6 +40,8 @@ class Hackathon_HoneySpam_Model_Observer
 
     /**
      * call rules
+     * @throws Mage_Core_Controller_Varien_Exception
+     * @throws Zend_Controller_Request_Exception
      */
     public function controllerActionPredispatchCustomerAccountCreatepost()
     {
@@ -64,6 +66,8 @@ class Hackathon_HoneySpam_Model_Observer
      *  - controllerActionPredispatchCustomerAccountForgotPasswordPost
      *  - controllerActionPredispatchContactsIndexPost
      *  - controllerActionPredispatchNewsletterSubscriberNew
+     * @throws Mage_Core_Controller_Varien_Exception
+     * @throws Zend_Controller_Request_Exception
      */
     public function checkHoneypot()
     {
@@ -74,32 +78,34 @@ class Hackathon_HoneySpam_Model_Observer
 
     /**
      * validate honeypot field
+     * @throws Zend_Controller_Request_Exception
+     * @throws Mage_Core_Controller_Varien_Exception
      */
     protected function _checkHoneypot()
     {
         if (strlen(Mage::app()->getRequest()->getParam($this->helper->getHoneypotName()))) {
-            $this->helper->log('Honeypot Input filled. Aborted.',Zend_Log::WARN);
+            $this->helper->log('Honeypot Input filled. Aborted.', Zend_Log::WARN);
 
             $e = new Mage_Core_Controller_Varien_Exception();
-            $e->prepareForward('index','error','honeyspam');
+            $e->prepareForward('index', 'error', 'honeyspam');
             throw $e;
         }
     }
 
     /**
      * validate time
+     * @throws Mage_Core_Controller_Varien_Exception
      */
     protected function _checkTimestamp()
     {
         $session = Mage::getSingleton('customer/session');
         $accountCreateTime = $this->helper->getHoneypotAccountCreateTime();
-        if (
-            !$session->getAccountCreateTime(false) || ($session->getAccountCreateTime() > (time() - $accountCreateTime))
+        if (!$session->getAccountCreateTime(false) || ($session->getAccountCreateTime() > (time() - $accountCreateTime))
         ) {
             $this->helper->log('Honeypot Timestamp filled. Aborted.', Zend_Log::WARN);
 
             $e = new Mage_Core_Controller_Varien_Exception();
-            $e->prepareForward('index','error','honeyspam');
+            $e->prepareForward('index', 'error', 'honeyspam');
             throw $e;
         }
     }
@@ -113,7 +119,11 @@ class Hackathon_HoneySpam_Model_Observer
         $session->setAccountCreateTime(time());
     }
 
-    // Invoke indexing
+    /**
+     * Invoke indexing
+     * @throws Mage_Core_Controller_Varien_Exception
+     * @throws Zend_Controller_Request_Exception
+     */
     public function _indexLoginParams()
     {
         $checker = Mage::getModel('hackathon_honeyspam/checker');
@@ -124,7 +134,7 @@ class Hackathon_HoneySpam_Model_Observer
             $this->helper->log("Honeypot spam index at $return. Aborted.", Zend_Log::WARN);
 
             $e = new Mage_Core_Controller_Varien_Exception();
-            $e->prepareForward('index','error','honeyspam');
+            $e->prepareForward('index', 'error', 'honeyspam');
             throw $e;
         }
     }
