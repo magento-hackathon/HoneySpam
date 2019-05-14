@@ -80,7 +80,7 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract {
         /**
          *
          * This loop checks all parameters seperately on
-         * different aspects such as lenght or content
+         * different aspects such as length or content
          *
          **/
 
@@ -90,7 +90,7 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract {
                 $helper->log("SPAM: " . $param . " has more than 15 Characters");
             }
 
-            if (is_numeric($param)) { // Param contains numbers only == spam (heavy rating!
+            if (is_numeric($param)) { // Param contains numbers only == spam (heavy rating!)
                 $_index += 2.5;
                 $helper->log("SPAM: " . $param . " contains only numbers");
             }
@@ -102,7 +102,7 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract {
                 }
             }
 
-            if (preg_match("([aeiou]{3})", $param, $matches)) { // More than 3 consecutive vouwels == spam
+            if (preg_match("([aeiou]{3})", $param, $matches)) { // More than 3 consecutive vowels == spam
                 if (!($matches[0] == "eie")) {
                     $_index += 1;
                     $helper->log("matches: " . $matches[0]); // Meier is okay
