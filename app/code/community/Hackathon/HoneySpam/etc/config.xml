@@ -130,6 +130,7 @@
                 <honeypotName>url</honeypotName>
                 <spamIndexLevel>2.5</spamIndexLevel>
                 <enableLogging>0</enableLogging>
+                <logfile>honeyspam.log</logfile>
             </honeyspam>
         </hackathon>
     </default>

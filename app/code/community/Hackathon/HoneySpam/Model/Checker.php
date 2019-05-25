@@ -24,8 +24,8 @@
  * @link      http://www.magento-hackathon.de/
  */
 
-class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract {
-
+class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract
+{
     /**
      * @param array $params
      * @return int
@@ -37,7 +37,7 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract {
         $emailprefix = explode('@', $params['email']);
         $emailprefix = $emailprefix[0];
 
-        $params = array($firstname, $lastname, $emailprefix);
+        $params = [$firstname, $lastname, $emailprefix];
 
         return $this->check($firstname, $lastname, $emailprefix, $params);
     }
@@ -51,7 +51,7 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract {
      */
     public function check($firstname, $lastname, $emailprefix, $params)
     {
-        /* @var $helper Hackathon_HoneySpam_Helper_Data */
+        /* @var Hackathon_HoneySpam_Helper_Data $helper */
         $helper = Mage::helper('hackathon_honeyspam');
 
         $_index = 0;
@@ -63,14 +63,14 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract {
             if ($lastname == $emailprefix) {
                 $_index += 2;
             }
-        // Two fields...
-        } else if ($firstname == $emailprefix) {
+            // Two fields...
+        } elseif ($firstname == $emailprefix) {
             $_index += 1;
             if ($lastname == $firstname) {
                 // the third one?
                 $_index += 2;
             }
-        } else if ($lastname == $emailprefix) {
+        } elseif ($lastname == $emailprefix) {
             $_index += 1;
             if ($firstname == $lastname) {
                 $_index += 2;

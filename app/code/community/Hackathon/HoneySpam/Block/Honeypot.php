@@ -32,9 +32,12 @@ class Hackathon_HoneySpam_Block_Honeypot extends Mage_Core_Block_Template
         parent::_construct();
     }
 
+    /**
+     * @return string
+     */
     public function getHoneypotName()
     {
-        /* @var $helper Hackathon_HoneySpam_Helper_Data */
+        /* @var Hackathon_HoneySpam_Helper_Data $helper */
         $helper = Mage::helper('hackathon_honeyspam');
         return $helper->getHoneypotName();
     }
