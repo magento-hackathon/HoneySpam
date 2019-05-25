@@ -126,7 +126,7 @@
                         </enableLogging>
 
                         <logfile>
-                            <label>Enable honeypot logging</label>
+                            <label>Logfile</label>
                             <comment>Allowed file extensions: log, txt, html, csv</comment>
                             <frontend_type>text</frontend_type>
                             <validate>required-entry</validate>
