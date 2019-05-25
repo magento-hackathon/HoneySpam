@@ -50,10 +50,9 @@ class Hackathon_HoneySpam_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * @return string
      */
-    public function getLogFileName()
+    public function getLogFilename()
     {
-        $logfile = Mage::getStoreConfig(self::CONFIG_PATH_LOG_FILE);
-        return $logfile ? $logfile : 'honeyspam.log';
+        return Mage::getStoreConfig(self::CONFIG_PATH_LOG_FILE);
     }
 
     /**
@@ -63,7 +62,7 @@ class Hackathon_HoneySpam_Helper_Data extends Mage_Core_Helper_Abstract
     public function log($message, $level = Zend_Log::INFO)
     {
         if ($this->isLoggingEnabled()) {
-            Mage::log($message, $level, $this->getLogFileName());
+            Mage::log($message, $level, $this->getLogFilename());
         }
     }
 }

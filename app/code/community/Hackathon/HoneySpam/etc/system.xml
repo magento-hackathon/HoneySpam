@@ -127,7 +127,7 @@
 
                         <logfile>
                             <label>Enable honeypot logging</label>
-                            <comment>If not set honeyspam.log is used. Allowed file extensions: log, txt, html, csv</comment>
+                            <comment>Allowed file extensions: log, txt, html, csv</comment>
                             <frontend_type>text</frontend_type>
                             <validate>required-entry</validate>
                             <sort_order>80</sort_order>
