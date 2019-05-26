@@ -104,4 +104,20 @@ class Hackathon_HoneySpam_Helper_Data extends Mage_Core_Helper_Abstract
             Mage::log($message, $level, $this->getLogFilename());
         }
     }
+
+    /**
+     * @return bool
+     */
+    public function isHoneypotFilled()
+    {
+        return strlen($this->_getRequest()->getParam($this->getHoneypotName()));
+    }
+
+    /**
+     * @return array
+     */
+    public function getRequestParams()
+    {
+        return $this->_getRequest()->getParams();
+    }
 }
