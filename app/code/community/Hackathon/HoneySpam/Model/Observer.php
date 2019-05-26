@@ -122,7 +122,6 @@ class Hackathon_HoneySpam_Model_Observer
     private function getCustomerSession()
     {
         return Mage::getSingleton('customer/session');
-
     }
 
     /**
