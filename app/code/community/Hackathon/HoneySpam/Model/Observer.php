@@ -103,7 +103,7 @@ class Hackathon_HoneySpam_Model_Observer
      * Invoke indexing
      * @throws Mage_Core_Controller_Varien_Exception
      */
-    public function _indexLoginParams()
+    protected function _indexLoginParams()
     {
         $helper = $this->getHelper();
         $return = $this->getCheckerModel()->init($helper->getRequestParams());
