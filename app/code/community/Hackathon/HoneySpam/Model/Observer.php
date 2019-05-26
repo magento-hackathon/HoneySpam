@@ -29,7 +29,7 @@ class Hackathon_HoneySpam_Model_Observer
      * call rules
      * @throws Mage_Core_Controller_Varien_Exception
      */
-    public function controllerActionPredispatchCustomerAccountCreatepost()
+    public function checkHoneypotCustomerAccountCreatepost()
     {
         /** @var Hackathon_HoneySpam_Helper_Data $helper */
         $helper = Mage::helper('hackathon_honeyspam');
@@ -49,43 +49,7 @@ class Hackathon_HoneySpam_Model_Observer
     /**
      * @throws Mage_Core_Controller_Varien_Exception
      */
-    public function controllerActionPredispatchBlockReviewForm()
-    {
-        /** @var Hackathon_HoneySpam_Helper_Data $helper */
-        $helper = Mage::helper('hackathon_honeyspam');
-        if ($helper->isHoneypotNameEnabled()) {
-            $this->_checkHoneypot();
-        }
-    }
-
-    /**
-     * @throws Mage_Core_Controller_Varien_Exception
-     */
-    public function controllerActionPredispatchCustomerAccountForgotPasswordPost()
-    {
-        /** @var Hackathon_HoneySpam_Helper_Data $helper */
-        $helper = Mage::helper('hackathon_honeyspam');
-        if ($helper->isHoneypotNameEnabled()) {
-            $this->_checkHoneypot();
-        }
-    }
-
-    /**
-     * @throws Mage_Core_Controller_Varien_Exception
-     */
-    public function controllerActionPredispatchContactsIndexPost()
-    {
-        /** @var Hackathon_HoneySpam_Helper_Data $helper */
-        $helper = Mage::helper('hackathon_honeyspam');
-        if ($helper->isHoneypotNameEnabled()) {
-            $this->_checkHoneypot();
-        }
-    }
-
-    /**
-     * @throws Mage_Core_Controller_Varien_Exception
-     */
-    public function controllerActionPredispatchNewsletterSubscriberNew()
+    public function checkHoneypot()
     {
         /** @var Hackathon_HoneySpam_Helper_Data $helper */
         $helper = Mage::helper('hackathon_honeyspam');
@@ -139,7 +103,7 @@ class Hackathon_HoneySpam_Model_Observer
     /**
      * set access timestamp
      */
-    public function controllerActionPredispatchCustomerAccountCreate()
+    public function checkHoneypotCustomerAccountCreate()
     {
         /** @var Mage_Customer_Model_Session $session */
         $session = Mage::getSingleton('customer/session');
