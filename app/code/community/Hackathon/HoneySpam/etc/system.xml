@@ -85,6 +85,7 @@
                         <honeypotAccountCreateTime>
                             <label>Minimum time for registration in seconds</label>
                             <frontend_type>text</frontend_type>
+                            <validate>validate-digits</validate>
                             <sort_order>40</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
@@ -106,6 +107,7 @@
                             <label>Set max. spam index trust level</label>
                             <comment>An index of 2.5 should be enough to block average spam logins The lower the level, the higher the level, the more spam gets through</comment>
                             <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
                             <sort_order>60</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
@@ -122,6 +124,17 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </enableLogging>
+
+                        <logfile>
+                            <label>Logfile</label>
+                            <comment>Allowed file extensions: log, txt, html, csv</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </logfile>
                     </fields>
                 </honeyspam>
             </groups>
