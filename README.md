@@ -58,6 +58,7 @@ After the Installation you should be able to find a input field with the id="url
 - Andreas Emer
 - Bastian Ike
 - Fabian Blechschmidt
+- Sven Reichel
 
 ### Current Status of Project
 
