@@ -54,14 +54,14 @@ class Hackathon_HoneySpam_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function isSpamIndexingEnabled()
     {
-        return Mage::getStoreConfigFlag(self::CONFIG_PATH_ENABLE_TIME);
+        return Mage::getStoreConfigFlag(self::CONFIG_PATH_ENABLE_SPAM);
     }
     /**
      * @return bool
      */
     public function isHoneypotAccountCreateTimeEnabled()
     {
-        return Mage::getStoreConfigFlag(self::CONFIG_PATH_ENABLE_SPAM);
+        return Mage::getStoreConfigFlag(self::CONFIG_PATH_ENABLE_TIME);
     }
     /**
      * @return string
