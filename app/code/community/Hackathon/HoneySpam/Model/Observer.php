@@ -124,9 +124,8 @@ class Hackathon_HoneySpam_Model_Observer
         $helper = Mage::helper('hackathon_honeyspam');
 
         $accountCreateTime = $helper->getHoneypotAccountCreateTime();
-        if (
-            !$session->getData('account_create_time', false)
-            || ($session->getData('account_create_time') > (time() - $accountCreateTime))
+        if ($session->getData('account_create_time', false)
+            && ($session->getData('account_create_time') > (time() - $accountCreateTime))
         ) {
             $helper->log('Honeypot Timestamp filled. Aborted.', Zend_Log::WARN);
 
