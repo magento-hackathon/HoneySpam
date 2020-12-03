@@ -27,7 +27,8 @@ class Hackathon_HoneySpam_Model_Observer
 {
     /**
      * call rules
-     * @throws Mage_Core_Controller_Varien_Exception
+     *
+     * @throws Hackathon_HoneySpam_Exception
      */
     public function checkHoneypotCustomerAccountCreatepost()
     {
@@ -57,7 +58,8 @@ class Hackathon_HoneySpam_Model_Observer
 
     /**
      * validate honeypot field
-     * @throws Mage_Core_Controller_Varien_Exception
+     *
+     * @throws Hackathon_HoneySpam_Exception
      */
     protected function _checkHoneypot()
     {
@@ -65,15 +67,16 @@ class Hackathon_HoneySpam_Model_Observer
         if ($helper->isHoneypotFilled()) {
             $helper->log('Honeypot Input filled. Aborted.', Zend_Log::WARN);
 
-            $e = new Mage_Core_Controller_Varien_Exception();
-            $e->prepareForward('index', 'error', 'honeyspam');
+            $e = new Hackathon_HoneySpam_Exception();
+            $e->prepareRedirect('honeyspam/error/index');
             throw $e;
         }
     }
 
     /**
      * validate time
-     * @throws Mage_Core_Controller_Varien_Exception
+     *
+     * @throws Hackathon_HoneySpam_Exception
      */
     protected function _checkTimestamp()
     {
@@ -85,8 +88,8 @@ class Hackathon_HoneySpam_Model_Observer
         ) {
             $helper->log('Honeypot Timestamp filled. Aborted.', Zend_Log::WARN);
 
-            $e = new Mage_Core_Controller_Varien_Exception();
-            $e->prepareForward('index', 'error', 'honeyspam');
+            $e = new Hackathon_HoneySpam_Exception();
+            $e->prepareRedirect('honeyspam/error/index');
             throw $e;
         }
     }
@@ -101,7 +104,8 @@ class Hackathon_HoneySpam_Model_Observer
 
     /**
      * Invoke indexing
-     * @throws Mage_Core_Controller_Varien_Exception
+     *
+     * @throws Hackathon_HoneySpam_Exception
      */
     protected function _indexLoginParams()
     {
@@ -110,8 +114,8 @@ class Hackathon_HoneySpam_Model_Observer
         if ($return >= $helper->getSpamIndexLevel()) {
             $helper->log("Honeypot spam index at $return. Aborted.", Zend_Log::WARN);
 
-            $e = new Mage_Core_Controller_Varien_Exception();
-            $e->prepareForward('index', 'error', 'honeyspam');
+            $e = new Hackathon_HoneySpam_Exception();
+            $e->prepareRedirect('honeyspam/error/index');
             throw $e;
         }
     }
