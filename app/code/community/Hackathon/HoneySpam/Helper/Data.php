@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Magento
  *
@@ -12,35 +13,27 @@
  * obtain it through the world-wide-web, please send an email
  * to license@magentocommerce.com so we can send you a copy immediately.
  *
- * @category  Hackathon
- * @package   Hackathon_HoneySpam
- * @author    Andreas Emer <honeyspam@emdec.de>
+ * @category  Hackathon
+ * @package   Hackathon_HoneySpam
+ * @author    Andreas Emer <honeyspam@emdec.de>
  * @author    Fabian Blechschmidt <hackathon@fabian-blechschmidt.de>
  * @author    Sascha Wohlgemuth <sascha.wohlgemuth@gmail.com>
  * @author    Bastian Ike <bastian.ike@gmail.com>
  * @author    Peter Ukener <peterukener@gmail.com>
  * @copyright 2012 Magento Hackathon
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @link      http://www.magento-hackathon.de/
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      http://www.magento-hackathon.de/
  */
 class Hackathon_HoneySpam_Helper_Data extends Mage_Core_Helper_Abstract
 {
-    const CONFIG_PATH_INPUT_NAME    = 'hackathon/honeyspam/honeypotName';
-    const CONFIG_PATH_ENABLE_POT    = 'hackathon/honeyspam/enableHoneypotName';
-    const CONFIG_PATH_ENABLE_TIME   = 'hackathon/honeyspam/enableHoneypotAccountCreateTime';
-    const CONFIG_PATH_ENABLE_SPAM   = 'hackathon/honeyspam/enableSpamIndexing';
-    const CONFIG_PATH_INDEX_LEVEL   = 'hackathon/honeyspam/spamIndexLevel';
-    const CONFIG_PATH_CREATE_TIME   = 'hackathon/honeyspam/honeypotAccountCreateTime';
-    const CONFIG_PATH_ENABLE_LOG    = 'hackathon/honeyspam/enableLogging';
-    const CONFIG_PATH_LOG_FILE      = 'hackathon/honeyspam/logfile';
-
-    /**
-     * @return string
-     */
-    public function getHoneypotName()
-    {
-        return Mage::getStoreConfig(self::CONFIG_PATH_INPUT_NAME);
-    }
+    const CONFIG_PATH_INPUT_NAME = 'hackathon/honeyspam/honeypotName';
+    const CONFIG_PATH_ENABLE_POT = 'hackathon/honeyspam/enableHoneypotName';
+    const CONFIG_PATH_ENABLE_TIME = 'hackathon/honeyspam/enableHoneypotAccountCreateTime';
+    const CONFIG_PATH_ENABLE_SPAM = 'hackathon/honeyspam/enableSpamIndexing';
+    const CONFIG_PATH_INDEX_LEVEL = 'hackathon/honeyspam/spamIndexLevel';
+    const CONFIG_PATH_CREATE_TIME = 'hackathon/honeyspam/honeypotAccountCreateTime';
+    const CONFIG_PATH_ENABLE_LOG = 'hackathon/honeyspam/enableLogging';
+    const CONFIG_PATH_LOG_FILE = 'hackathon/honeyspam/logfile';
 
     /**
      * @return bool
@@ -49,6 +42,7 @@ class Hackathon_HoneySpam_Helper_Data extends Mage_Core_Helper_Abstract
     {
         return Mage::getStoreConfigFlag(self::CONFIG_PATH_ENABLE_POT);
     }
+
     /**
      * @return bool
      */
@@ -56,6 +50,7 @@ class Hackathon_HoneySpam_Helper_Data extends Mage_Core_Helper_Abstract
     {
         return Mage::getStoreConfigFlag(self::CONFIG_PATH_ENABLE_SPAM);
     }
+
     /**
      * @return bool
      */
@@ -63,6 +58,7 @@ class Hackathon_HoneySpam_Helper_Data extends Mage_Core_Helper_Abstract
     {
         return Mage::getStoreConfigFlag(self::CONFIG_PATH_ENABLE_TIME);
     }
+
     /**
      * @return string
      */
@@ -70,12 +66,24 @@ class Hackathon_HoneySpam_Helper_Data extends Mage_Core_Helper_Abstract
     {
         return Mage::getStoreConfig(self::CONFIG_PATH_INDEX_LEVEL);
     }
+
     /**
      * @return string
      */
     public function getHoneypotAccountCreateTime()
     {
         return Mage::getStoreConfig(self::CONFIG_PATH_CREATE_TIME);
+    }
+
+    /**
+     * @param string $message
+     * @param int    $level
+     */
+    public function log($message, $level = Zend_Log::INFO)
+    {
+        if ($this->isLoggingEnabled()) {
+            Mage::log($message, $level, $this->getLogFilename());
+        }
     }
 
     /**
@@ -95,22 +103,19 @@ class Hackathon_HoneySpam_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @param string $message
-     * @param int $level
-     */
-    public function log($message, $level = Zend_Log::INFO)
-    {
-        if ($this->isLoggingEnabled()) {
-            Mage::log($message, $level, $this->getLogFilename());
-        }
-    }
-
-    /**
      * @return bool
      */
     public function isHoneypotFilled()
     {
         return strlen($this->_getRequest()->getParam($this->getHoneypotName()));
+    }
+
+    /**
+     * @return string
+     */
+    public function getHoneypotName()
+    {
+        return Mage::getStoreConfig(self::CONFIG_PATH_INPUT_NAME);
     }
 
     /**

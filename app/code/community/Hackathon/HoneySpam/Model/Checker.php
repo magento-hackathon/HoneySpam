@@ -12,16 +12,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@magentocommerce.com so we can send you a copy immediately.
  *
- * @category  Hackathon
- * @package   Hackathon_HoneySpam
- * @author    Andreas Emer <honeyspam@emdec.de>
+ * @category  Hackathon
+ * @package   Hackathon_HoneySpam
+ * @author    Andreas Emer <honeyspam@emdec.de>
  * @author    Fabian Blechschmidt <hackathon@fabian-blechschmidt.de>
  * @author    Sascha Wohlgemuth <sascha.wohlgemuth@gmail.com>
  * @author    Bastian Ike <bastian.ike@gmail.com>
  * @author    Peter Ukener <peterukener@gmail.com>
  * @copyright 2012 Magento Hackathon
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @link      http://www.magento-hackathon.de/
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      http://www.magento-hackathon.de/
  */
 
 class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract
@@ -46,7 +46,7 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract
      * @param string $firstname
      * @param string $lastname
      * @param string $emailprefix
-     * @param array $params
+     * @param array  $params
      * @return int
      */
     public function check($firstname, $lastname, $emailprefix, $params)
@@ -110,7 +110,8 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract
                 }
             }
 
-            if (preg_match("([A-Z]{2,})", substr($param, -4))) { // At least two CAPITALS at the end of a string == Spam!
+            if (preg_match("([A-Z]{2,})",
+                substr($param, -4))) { // At least two CAPITALS at the end of a string == Spam!
                 $_index += 1;
                 $helper->log("SPAM: " . $param . " has at least 2 CAPITAL letters at the end");
             }
@@ -120,7 +121,8 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract
                 $helper->log("SPAM: " . $param . " contains more than 3 CAPITALS at all");
             }
 
-            if (preg_match("([a-z])", substr($param, 1, 1)) && preg_match("([A-Z])", substr($param, 1, 1))) {   // Param starts with a lowercase+uppercase
+            if (preg_match("([a-z])", substr($param, 1, 1))
+                && preg_match("([A-Z])", substr($param, 1, 1))) {   // Param starts with a lowercase+uppercase
                 $_index += 1;
                 $helper->log("SPAM: " . $param . " starts with a combination lc/uc. E.g. aJohn, bSmith...");
             }

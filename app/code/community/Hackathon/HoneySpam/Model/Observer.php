@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Magento
  *
@@ -12,16 +13,16 @@
  * obtain it through the world-wide-web, please send an email
  * to license@magentocommerce.com so we can send you a copy immediately.
  *
- * @category  Hackathon
- * @package   Hackathon_HoneySpam
- * @author    Andreas Emer <honeyspam@emdec.de>
- * @author    Fabian Blechschmidt <hackathon@fabian-blechschmidt.de>
- * @author    Sascha Wohlgemuth <sascha.wohlgemuth@gmail.com>
- * @author    Bastian Ike <bastian.ike@gmail.com>
- * @author    Peter Ukener <peterukener@gmail.com>
- * @copyright 2012 Magento Hackathon
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @link      http://www.magento-hackathon.de/
+ * @category    Hackathon
+ * @package     Hackathon_HoneySpam
+ * @author      Andreas Emer <honeyspam@emdec.de>
+ * @author      Fabian Blechschmidt <hackathon@fabian-blechschmidt.de>
+ * @author      Sascha Wohlgemuth <sascha.wohlgemuth@gmail.com>
+ * @author      Bastian Ike <bastian.ike@gmail.com>
+ * @author      Peter Ukener <peterukener@gmail.com>
+ * @copyright   2012 Magento Hackathon
+ * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link        http://www.magento-hackathon.de/
  */
 class Hackathon_HoneySpam_Model_Observer
 {
@@ -47,13 +48,11 @@ class Hackathon_HoneySpam_Model_Observer
     }
 
     /**
-     * @throws Mage_Core_Controller_Varien_Exception
+     * @return Hackathon_HoneySpam_Helper_Data
      */
-    public function checkHoneypot()
+    private function getHelper()
     {
-        if ($this->getHelper()->isHoneypotNameEnabled()) {
-            $this->_checkHoneypot();
-        }
+        return Mage::helper('hackathon_honeyspam');
     }
 
     /**
@@ -80,7 +79,7 @@ class Hackathon_HoneySpam_Model_Observer
      */
     protected function _checkTimestamp()
     {
-        $helper = $this->getHelper();
+        $helper  = $this->getHelper();
         $session = $this->getCustomerSession();
 
         if (!$session->getData('account_create_time', false)
@@ -95,11 +94,11 @@ class Hackathon_HoneySpam_Model_Observer
     }
 
     /**
-     * set access timestamp
+     * @return Mage_Customer_Model_Session
      */
-    public function checkHoneypotCustomerAccountCreate()
+    private function getCustomerSession()
     {
-        $this->getCustomerSession()->setData('account_create_time', time());
+        return Mage::getSingleton('customer/session');
     }
 
     /**
@@ -121,14 +120,6 @@ class Hackathon_HoneySpam_Model_Observer
     }
 
     /**
-     * @return Mage_Customer_Model_Session
-     */
-    private function getCustomerSession()
-    {
-        return Mage::getSingleton('customer/session');
-    }
-
-    /**
      * @return Hackathon_HoneySpam_Model_Checker
      */
     private function getCheckerModel()
@@ -137,10 +128,20 @@ class Hackathon_HoneySpam_Model_Observer
     }
 
     /**
-     * @return Hackathon_HoneySpam_Helper_Data
+     * @throws Hackathon_HoneySpam_Exception
      */
-    private function getHelper()
+    public function checkHoneypot()
     {
-        return Mage::helper('hackathon_honeyspam');
+        if ($this->getHelper()->isHoneypotNameEnabled()) {
+            $this->_checkHoneypot();
+        }
+    }
+
+    /**
+     * set access timestamp
+     */
+    public function checkHoneypotCustomerAccountCreate()
+    {
+        $this->getCustomerSession()->setData('account_create_time', time());
     }
 }
