@@ -54,7 +54,7 @@
                 <observers>
                     <hackathon_honeyspam>
                         <class>hackathon_honeyspam/observer</class>
-                        <method>controllerActionPredispatchCustomerAccountCreatepost</method>
+                        <method>checkHoneypotCustomerAccountCreatepost</method>
                     </hackathon_honeyspam>
                 </observers>
             </controller_action_predispatch_customer_account_createpost>
@@ -63,7 +63,7 @@
                 <observers>
                     <hackathon_honeyspam>
                         <class>hackathon_honeyspam/observer</class>
-                        <method>controllerActionPredispatchBlockReviewForm</method>
+                        <method>checkHoneypot</method>
                     </hackathon_honeyspam>
                 </observers>
             </controller_action_predispatch_review_product_post>
@@ -72,7 +72,7 @@
                 <observers>
                     <hackathon_honeyspam>
                         <class>hackathon_honeyspam/observer</class>
-                        <method>controllerActionPredispatchCustomerAccountCreate</method>
+                        <method>checkHoneypotCustomerAccountCreate</method>
                     </hackathon_honeyspam>
                 </observers>
             </controller_action_predispatch_customer_account_create>
@@ -81,7 +81,7 @@
                 <observers>
                     <hackathon_honeyspam>
                         <class>hackathon_honeyspam/observer</class>
-                        <method>controllerActionPredispatchCustomerAccountForgotPasswordPost</method>
+                        <method>checkHoneypot</method>
                     </hackathon_honeyspam>
                 </observers>
             </controller_action_predispatch_customer_account_forgotpasswordpost>
@@ -90,7 +90,7 @@
                 <observers>
                     <hackathon_honeyspam>
                         <class>hackathon_honeyspam/observer</class>
-                        <method>controllerActionPredispatchContactsIndexPost</method>
+                        <method>checkHoneypot</method>
                     </hackathon_honeyspam>
                 </observers>
             </controller_action_predispatch_contacts_index_post>
@@ -99,7 +99,7 @@
                 <observers>
                     <hackathon_honeyspam>
                         <class>hackathon_honeyspam/observer</class>
-                        <method>controllerActionPredispatchNewsletterSubscriberNew</method>
+                        <method>checkHoneypot</method>
                     </hackathon_honeyspam>
                 </observers>
             </controller_action_predispatch_newsletter_subscriber_new>
