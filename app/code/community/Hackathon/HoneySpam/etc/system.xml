@@ -1,28 +1,29 @@
-<?xml version="1.0"?><!--
+<?xml version="1.0"?>
+<!--
 /**
-* Magento
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Open Software License (OSL 3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* http://opensource.org/licenses/osl-3.0.php
-* If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
-* to license@magentocommerce.com so we can send you a copy immediately.
-*
-* @category Hackathon
-* @package  Hackathon_HoneySpam
-* @author  Andreas Emer <honeyspam@emdec.de>
-* @author    Fabian Blechschmidt <hackathon@fabian-blechschmidt.de>
-* @author    Sascha Wohlgemuth <sascha.wohlgemuth@gmail.com>
-* @author    Bastian Ike <bastian.ike@gmail.com>
-* @author    Peter Ukener <peterukener@gmail.com>
-* @copyright 2012 Magento Hackathon
-* @license  http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
-* @link   http://www.magento-hackathon.de/
-*/
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category  Hackathon
+ * @package   Hackathon_HoneySpam
+ * @author    Andreas Emer <honeyspam@emdec.de>
+ * @author    Fabian Blechschmidt <hackathon@fabian-blechschmidt.de>
+ * @author    Sascha Wohlgemuth <sascha.wohlgemuth@gmail.com>
+ * @author    Bastian Ike <bastian.ike@gmail.com>
+ * @author    Peter Ukener <peterukener@gmail.com>
+ * @copyright 2012 Magento Hackathon
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      http://www.magento-hackathon.de/
+ */
 -->
 <config>
     <tabs>
@@ -54,7 +55,7 @@
                     <expanded>1</expanded>
                     <fields>
                         <enableHoneypotName>
-                            <label>Enable hidden honeypot field</label>
+                            <label>Enable Honeypot Hidden Field</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>10</sort_order>
@@ -64,7 +65,8 @@
                         </enableHoneypotName>
 
                         <honeypotName>
-                            <label>Hidden field name</label>
+                            <label>Hidden Field Name</label>
+                            <comment><![CDATA[<strong style="color:red">Warning!</strong> Please make sure that the new value is not already used in a form on the page (e.g. name, email).]]></comment>
                             <frontend_type>text</frontend_type>
                             <sort_order>20</sort_order>
                             <validate>validate-xml-identifier</validate>
@@ -77,7 +79,7 @@
                         </honeypotName>
 
                         <enableHoneypotAccountCreateTime>
-                            <label>Enable register time check</label>
+                            <label>Enable Register Time Check</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>30</sort_order>
@@ -87,7 +89,8 @@
                         </enableHoneypotAccountCreateTime>
 
                         <honeypotAccountCreateTime>
-                            <label>Minimum time for registration in seconds</label>
+                            <label>Minimum Time for Registration</label>
+                            <comment>Time in seconds.</comment>
                             <frontend_type>text</frontend_type>
                             <validate>validate-digits</validate>
                             <sort_order>40</sort_order>
@@ -100,7 +103,7 @@
                         </honeypotAccountCreateTime>
 
                         <enableSpamIndexing>
-                            <label>Enable spam indexing for input fields</label>
+                            <label>Enable Spam Indexing for Input Fields</label>
                             <frontend_type>select</frontend_type>
                             <sort_order>50</sort_order>
                             <show_in_default>1</show_in_default>
@@ -110,7 +113,7 @@
                         </enableSpamIndexing>
 
                         <spamIndexLevel>
-                            <label>Set max. spam index trust level</label>
+                            <label>Set Maximum Spam Index Trust Level</label>
                             <comment>An index of 2.5 should be enough to block average spam logins. The lower the level, the more spam gets through.</comment>
                             <frontend_type>text</frontend_type>
                             <validate>validate-number</validate>
@@ -124,7 +127,7 @@
                         </spamIndexLevel>
 
                         <enableLogging>
-                            <label>Enable honeypot logging</label>
+                            <label>Enable Honeypot Logging</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>70</sort_order>
@@ -134,8 +137,8 @@
                         </enableLogging>
 
                         <logfile>
-                            <label>Logfile</label>
-                            <comment>Allowed file extensions: log, txt, html, csv</comment>
+                            <label>Log Filename</label>
+                            <comment>Allowed file extensions: log, txt, html, csv.</comment>
                             <frontend_type>text</frontend_type>
                             <validate>required-entry</validate>
                             <sort_order>80</sort_order>
