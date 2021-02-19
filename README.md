@@ -13,6 +13,11 @@ Freshly added: Regex-checking on all input-fields to determine a loose index for
 thing at all, but it may prevent the low-end spam ("broadband spam"). You also can enable/disable this feature in the
 backend and set a maximum spam index trust level.
 
+## Compatibility
+This module should work on Magento 1.9.x (not tested on previous versions)
+
+That said, honeyspam unfortunately doesn't work well anymore, so you might want to look into other alternatives like captchas 🤢
+
 ## Installation
 
 ### Compiler
