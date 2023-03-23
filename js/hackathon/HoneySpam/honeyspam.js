@@ -23,9 +23,6 @@
  * @link      http://www.magento-hackathon.de/
  */
 
-document.observe('dom:loaded', function () {
-    var mhhsInput = $$('.mhhs-input');
-    if (mhhsInput.length > 0) {
-        mhhsInput.each(Element.hide);
-    }
+document.addEventListener('DOMContentLoaded', function(event) {
+    document.querySelectorAll('.mhhs-input').forEach(e => e.style.display = 'none');
 });
