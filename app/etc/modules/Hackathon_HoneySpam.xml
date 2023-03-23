@@ -29,6 +29,9 @@
         <Hackathon_HoneySpam>
             <active>true</active>
             <codePool>community</codePool>
+            <depends>
+                <Mage_Captcha />
+            </depends>
         </Hackathon_HoneySpam>
     </modules>
 </config>
